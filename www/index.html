@@ -2,6 +2,7 @@
 <html ng-app="App">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Ondetempico</title>
 
@@ -16,8 +17,10 @@
       }
     </script>-->
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/ionic/css/ionic.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/find.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -29,6 +32,18 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+    <!-- angular fire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+    <!-- ng-map -->
+    <script src="lib/ngmap/build/scripts/ng-map.min.js"></script>
+
+    <!-- gmaps api -->
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/configurations.js"></script>
@@ -37,7 +52,9 @@
     <script src="js/login/login.controller.js"></script>
     <script src="js/login/login.service.js"></script>
 
-    <script src="js/home/home.controller.js"></script>
+    <script src="js/find/find.controller.js"></script>
+    <script src="js/register/register.controller.js"></script>
+    <script src="js/settings/settings.controller.js"></script>
   </head>
 
   <body ng-app="starter">

@@ -1,11 +1,17 @@
 angular
   .module('App', [
     'ionic',
+    'ngMap',
+    'firebase',
     'Configurations',
     'Routes',
 
     'LoginController',
     'LoginService',
 
-    'HomeController'
+    'FindController',
+
+    'RegisterController',
+
+    'SettingsController'
   ])
