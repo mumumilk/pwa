@@ -1,9 +1,7 @@
 angular
   .module('App', [
-    'ionic',
     'ngMap',
     'firebase',
-    'Configurations',
     'Routes',
 
     'LoginController',

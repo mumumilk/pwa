@@ -1,5 +1,5 @@
 # Ondetempico
-> :fire: Encontre aquele pico para sua sessão.
+> :ok_hand: Encontre aquele pico para sua sessão de skate.
 
 ## Para desenvolvedores
 É necessário ter o Bower instalado globalmente.

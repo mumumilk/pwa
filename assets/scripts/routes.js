@@ -1,5 +1,5 @@
 angular
-  .module('Routes', [])
+  .module('Routes', ['ui.router'])
   .config(Routes)
 
   function Routes($stateProvider, $urlRouterProvider) {
@@ -7,12 +7,12 @@ angular
       .state('app', {
         url: '/app',
         abstract: true,
-        templateUrl: 'js/menu/menu.html'
+        templateUrl: 'assets/scripts/menu/menu.html'
       })
 
       .state('login', {
         url: '/login',
-        templateUrl: 'js/login/login.html',
+        templateUrl: 'assets/scripts/login/login.html',
         controller: 'LoginController as vm'
       })
 
@@ -20,7 +20,7 @@ angular
         url: '/find',
         views: {
           'menuContent': {
-            templateUrl: 'js/find/find.html',
+            templateUrl: 'assets/scripts/find/find.html',
             controller: 'FindController'
           }
         }
@@ -30,7 +30,7 @@ angular
         url: '/register',
         views: {
           'menuContent': {
-            templateUrl: 'js/register/register.html',
+            templateUrl: 'assets/scripts/register/register.html',
             controller: 'RegisterController'
           }
         }
@@ -40,7 +40,7 @@ angular
         url: '/settings',
         views: {
           'menuContent': {
-            templateUrl: 'js/settings/settings.html',
+            templateUrl: 'assets/scripts/settings/settings.html',
             controller: 'SettingsController'
           }
         }
