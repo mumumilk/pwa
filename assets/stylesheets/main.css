@@ -160,7 +160,7 @@ select {
   padding: 10px 20px;
   margin-top: 80px;
   cursor: pointer;
-  background: linear-gradient(to right, #56ab2f, #a8e063);
+  background: #212121;
   border: none;
 }
 #login .login-button-icon {
