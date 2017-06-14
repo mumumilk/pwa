@@ -10,6 +10,6 @@ angular
     vm.doLogin = doLogin
 
     function doLogin() {
-      $state.go('app.find')
+      $state.go('menu.find')
     }
   }

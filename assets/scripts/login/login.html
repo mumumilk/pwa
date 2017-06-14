@@ -1,14 +1,17 @@
-<section class="login">
+<section id="login">
   <video class="login-background" autoplay loop>
     <source src="assets/images/background.mp4" type="video/mp4">
   </video>
 
   <div class="login-container">
     <span class="login-logo">
-      <img src="assets/images/logo.png" alt="">
+      <img src="" alt="Ondetempico">
     </span>
     <span class="login-logo-slogan">Encontre aquele pico para sua sessão de skate.</span>
 
-    <button class="mdc-button mdc-button--raised mdc-button--primary" ng-click="vm.doLogin()">Realizar login</button>
+    <button class="login-button" ng-click="vm.doLogin()">
+      Realizar login
+      <i class="login-button-icon fa fa-angle-right"></i>
+    </button>
   </div>
 </section>

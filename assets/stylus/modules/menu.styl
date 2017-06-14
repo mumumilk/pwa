@@ -1,0 +1,46 @@
+.menu-overlay
+  width 100%
+  min-height 100vh
+  z-index 10
+  background alpha($shaft, 0.8)
+  position fixed
+
+.menu
+  background $white
+  position fixed
+  z-index 20
+  min-height 100%
+  width 100%
+  max-width 150px
+
+  .menu-item,
+  .menu-back
+    text-align center
+
+  .menu-back-icon,
+  .menu-back-title,
+  .menu-item-icon,
+  .menu-item-title
+    color $shaft
+
+  .menu-item
+    cursor pointer
+    margin-top 35px
+
+  .menu-item-icon
+    font-size rem(25px)
+
+  .menu-back
+    cursor pointer
+    margin-top 15px
+
+  .menu-back-icon
+    margin-right 5px
+    font-size rem(18px)
+
+  .menu-item-title
+    margin-top 5px
+    display block
+    text-transform uppercase
+    font-weight 400
+    font-size rem(13px)

@@ -1,38 +1,27 @@
-<ion-side-menus enable-menu-with-back-views="false">
-  <ion-side-menu-content>
-    <ion-nav-bar class="menu-bar bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
+<nav class="menu">
+  <div class="menu-back" ng-click="vm.closeMenu()">
+    <i class="menu-back-icon fa fa-long-arrow-left" aria-hidden="true"></i>
+    <span class="menu-back-title">Voltar</span>
+  </div>
 
-      <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-        </button>
-      </ion-nav-buttons>
-    </ion-nav-bar>
-    <ion-nav-view name="menuContent"></ion-nav-view>
-  </ion-side-menu-content>
+  <div class="menu-item" ng-click="vm.closeMenu()">
+    <i class="menu-item-icon fa fa-map" aria-hidden="true"></i>
+    <span class="menu-item-title">Picos</span>
+  </div>
 
-  <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Guilherme Bayer</h1>
-    </ion-header-bar>
-    <ion-content>
-      <ion-list>
-        <ion-item menu-close ui-sref="app.find">
-          <i class="icon ion-search"></i>
-          Encontrar picos
-        </ion-item>
+  <div class="menu-item" ng-click="vm.closeMenu()">
+    <i class="menu-item-icon fa fa-cog" aria-hidden="true"></i>
+    <span class="menu-item-title">Configurações</span>
+  </div>
+</nav>
 
-        <ion-item menu-close ui-sref="app.register">
-          <i class="icon ion-location"></i>
-          Cadastrar um pico
-        </ion-item>
+<div class="menu-overlay hidden"></div>
 
-        <ion-item menu-close ui-sref="app.settings">
-          <i class="icon ion-gear-b"></i>
-          Configurações
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-side-menu>
-</ion-side-menus>
+<header id="header">
+  <i class="header-icon fa fa-bars" aria-hidden="true" ng-click="vm.openMenu()"></i>
+  <h1 class="header-title">Picos</h1>
+</header>
+
+<main id="main">
+  <ui-view></ui-view>
+</main>

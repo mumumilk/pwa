@@ -4,6 +4,8 @@ angular
     'firebase',
     'Routes',
 
+    'MenuController',
+
     'LoginController',
     'LoginService',
 

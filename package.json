@@ -18,5 +18,12 @@
   "homepage": "https://github.com/ondetempico/app#readme",
   "dependencies": {
     "material-components-web": "^0.13.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "gride": "^0.5.2",
+    "gulp": "^3.9.1",
+    "gulp-stylus": "^2.6.0",
+    "rupture": "^0.6.2"
   }
 }
