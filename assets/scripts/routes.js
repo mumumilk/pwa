@@ -1,13 +1,15 @@
 angular
   .module('Routes', ['ui.router'])
-  .config(Routes)
+  .config(routes)
 
-  function Routes($stateProvider, $urlRouterProvider) {
+  routes.$inject = ['$stateProvider', '$urlRouterProvider']
+
+  function routes($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('menu', {
         url: '/menu',
-        controller: 'MenuController as vm',
-        templateUrl: 'assets/scripts/menu/menu.html'
+        templateUrl: 'assets/scripts/menu/menu.html',
+        controller: 'MenuController as vm'
       })
 
       .state('login', {
@@ -19,21 +21,29 @@ angular
       .state('menu.find', {
         url: '/find',
         templateUrl: 'assets/scripts/find/find.html',
-        controller: 'FindController'
+        controller: 'FindController as vm',
+        resolve: {
+          isAuthenticated: AuthService => AuthService.isAuthenticated()
+        }
       })
 
       .state('menu.register', {
         url: '/register',
         templateUrl: 'assets/scripts/register/register.html',
-        controller: 'RegisterController'
+        controller: 'RegisterController as vm',
+        resolve: {
+          isAuthenticated: AuthService => AuthService.isAuthenticated()
+        }
       })
 
       .state('menu.settings', {
         url: '/settings',
         templateUrl: 'assets/scripts/settings/settings.html',
-        controller: 'SettingsController'
+        controller: 'SettingsController as vm',
+        resolve: {
+          isAuthenticated: AuthService => AuthService.isAuthenticated()
+        }
       })
 
-      // if none of the above states are matched, use this as the fallback
-      $urlRouterProvider.otherwise('/login')
+    $urlRouterProvider.otherwise('/login')
   }

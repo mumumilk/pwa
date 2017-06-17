@@ -36,17 +36,17 @@ select {
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
 }
-#header {
+.header {
   background: #212121;
   width: 100%;
   position: relative;
 }
-#header .header-icon,
-#header .header-title {
+.header .header-icon,
+.header .header-title {
   display: inline-block;
   vertical-align: middle;
 }
-#header .header-icon {
+.header .header-icon {
   color: #fff;
   position: absolute;
   left: 15px;
@@ -55,7 +55,7 @@ select {
   transform: translateY(-50%);
   cursor: pointer;
 }
-#header .header-title {
+.header .header-title {
   color: #fff;
   font-weight: 100;
   font-size: 1.125rem;
@@ -63,30 +63,42 @@ select {
   text-align: center;
   line-height: 50px;
 }
-.menu-overlay {
+.main {
   width: 100%;
-  min-height: 100vh;
-  z-index: 10;
-  background: rgba(33,33,33,0.8);
+  top: 50px;
+}
+.header-menu-open,
+.main-menu-open {
   position: fixed;
+  left: 280px;
+}
+@media only screen and (max-width: 768px) {
+  .header-menu-open,
+  .main-menu-open {
+    left: 70%;
+  }
 }
 .menu {
-  background: #fff;
+  background: #212121;
   position: fixed;
   z-index: 20;
   min-height: 100%;
   width: 100%;
-  max-width: 150px;
+  max-width: 280px;
 }
-.menu .menu-item,
-.menu .menu-back {
-  text-align: center;
+@media only screen and (max-width: 768px) {
+  .menu {
+    max-width: 70%;
+  }
 }
-.menu .menu-back-icon,
-.menu .menu-back-title,
+.menu .menu-item {
+  text-align: left;
+}
 .menu .menu-item-icon,
 .menu .menu-item-title {
-  color: #212121;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
 }
 .menu .menu-item {
   cursor: pointer;
@@ -94,18 +106,11 @@ select {
 }
 .menu .menu-item-icon {
   font-size: 1.5625rem;
-}
-.menu .menu-back {
-  cursor: pointer;
-  margin-top: 15px;
-}
-.menu .menu-back-icon {
-  margin-right: 5px;
-  font-size: 1.125rem;
+  width: 25%;
+  text-align: center;
 }
 .menu .menu-item-title {
-  margin-top: 5px;
-  display: block;
+  text-align: left;
   text-transform: uppercase;
   font-weight: 400;
   font-size: 0.8125rem;

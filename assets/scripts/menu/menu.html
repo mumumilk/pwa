@@ -1,27 +1,43 @@
-<nav class="menu">
-  <div class="menu-back" ng-click="vm.closeMenu()">
-    <i class="menu-back-icon fa fa-long-arrow-left" aria-hidden="true"></i>
-    <span class="menu-back-title">Voltar</span>
+<nav class="menu hidden">
+  <div class="menu-user">
+    <img src="{{ vm.user.photoURL }}" alt="{{ vm.user.displayName }}">
+
+    <div>
+      <h2>{{ vm.user.displayName }}</h2>
+    </div>
+  </div>
+
+  <div class="menu-item" ng-click="vm.closeMenu()">
+    <i class="menu-item-icon fa fa-map-signs" aria-hidden="true"></i>
+    <span class="menu-item-title">Encontrar picos</span>
   </div>
 
   <div class="menu-item" ng-click="vm.closeMenu()">
     <i class="menu-item-icon fa fa-map" aria-hidden="true"></i>
-    <span class="menu-item-title">Picos</span>
+    <span class="menu-item-title">Cadastrar pico</span>
+  </div>
+
+  <div class="menu-item" ng-click="vm.closeMenu()">
+    <i class="menu-item-icon fa fa-heart" aria-hidden="true"></i>
+    <span class="menu-item-title">Sobre</span>
   </div>
 
   <div class="menu-item" ng-click="vm.closeMenu()">
     <i class="menu-item-icon fa fa-cog" aria-hidden="true"></i>
     <span class="menu-item-title">Configurações</span>
   </div>
+
+  <div class="menu-item" ng-click="vm.logout()">
+    <i class="menu-item-icon fa fa-long-arrow-left" aria-hidden="true"></i>
+    <span class="menu-item-title">Sair</span>
+  </div>
 </nav>
 
-<div class="menu-overlay hidden"></div>
-
-<header id="header">
+<header id="header" class="header">
   <i class="header-icon fa fa-bars" aria-hidden="true" ng-click="vm.openMenu()"></i>
   <h1 class="header-title">Picos</h1>
 </header>
 
-<main id="main">
+<main id="main" class="main">
   <ui-view></ui-view>
 </main>
