@@ -48,6 +48,7 @@ angular
 
     function closeMenu() {
       vm.menu.classList.add('hidden')
-      vm.overlay.classList.add('hidden')
+      vm.header.classList.remove('header-menu-open')
+      vm.main.classList.remove('main-menu-open')
     }
   }
