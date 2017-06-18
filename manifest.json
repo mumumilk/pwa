@@ -1,0 +1,7 @@
+{
+  "short_name": "Ondetempico",
+  "name": "Encontre aquele pico para sua sessão de skate.",
+  "start_url": "/index.html",
+  "display": "fullscreen",
+  "orientation": "landscape"
+}

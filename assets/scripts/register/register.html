@@ -1,0 +1,58 @@
+<section class="register">
+  <form class="register-modal hidden">
+    <h2 class="register-modal-title">Mais informações do pico</h2>
+
+    <div class="field-group">
+      <input class="field-text" type="text" required>
+      <label class="field-text-label">Nome do pico</label>
+    </div>
+
+    <h3 class="register-modal-subtitle">As modalidades no pico são</h3>
+
+    <div class="field-group">
+      <input class="field-checkbox" id="longboard" type="checkbox">
+      <label class="field-checkbox-label" for="longboard">
+        Longboard
+        <i class="field-checkbox-label-icon fa fa-check"></i>
+      </label>
+    </div>
+
+    <div class="field-group">
+      <input class="field-checkbox" id="street" type="checkbox">
+      <label class="field-checkbox-label" for="street">
+        Street
+        <i class="field-checkbox-label-icon fa fa-check"></i>
+      </label>
+    </div>
+
+    <h3 class="register-modal-subtitle">O acesso ao pico é</h3>
+    <div class="field-group">
+      <input class="field-radio" name="access" id="public" type="radio">
+      <label class="field-radio-label" for="public">
+        Público
+        <i class="field-radio-label-icon fa fa-check"></i>
+      </label>
+    </div>
+
+    <div class="field-group">
+      <input class="field-radio" name="access" id="paid" type="radio">
+      <label class="field-radio-label" for="paid">
+        Pago
+        <i class="field-radio-label-icon fa fa-check"></i>
+      </label>
+    </div>
+
+    <input class="register-modal-button" type="submit" value="Adicionar pico">
+  </form>
+
+  <span class="register-marker fa fa-map-marker"></span>
+  <button class="register-button" ng-click="vm.nextStep()">Confirmar posição</button>
+
+  <ng-map
+    class="register-map"
+    center="current-location"
+    zoom="19"
+    disable-default-u-i="true">
+  </ng-map>
+
+</section>

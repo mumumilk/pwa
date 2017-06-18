@@ -1,0 +1,68 @@
+.register
+  text-align center
+  position relative
+  height calc(100vh - 50px)
+
+  .register-marker
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    font-size rem(35px)
+    color $shaft
+    z-index 5
+
+  .register-modal-button,
+  .register-button
+    color $white
+    font-size rem(14px)
+    border-radius 50px
+    font-weight 400
+    letter-spacing rem(1px)
+    text-transform uppercase
+    cursor pointer
+    background $shaft
+    border none
+    width 100%
+    padding 10px 20px
+
+  .register-button
+    z-index 5
+    width 90%
+    position absolute
+    bottom 50px
+    left 50%
+    transform translateX(-50%)
+    margin-top 80px
+
+  .register-map
+    height 100%
+
+  .register-modal
+    width 100%
+    height 100%
+    background $white
+    position absolute
+    top 0
+    left 0
+    z-index 10
+    padding 0 15px
+
+  .register-modal-title
+    margin-top 20px
+    margin-bottom 30px
+    font-size rem(20px)
+    color $shaft
+    text-align left
+    font-weight 500
+
+  .register-modal-subtitle
+    margin-top 20px
+    margin-bottom 30px
+    font-size rem(16px)
+    color $shaft
+    text-align left
+    font-weight 500
+
+  .register-modal-button
+    margin-top 30px

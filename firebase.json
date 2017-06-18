@@ -1,6 +1,16 @@
 {
   "hosting": {
     "public": ".",
+    "ignore": [
+      "node_modules/",
+      "bower.json",
+      ".bowerrc",
+      "README.md",
+      "package.json",
+      ".gitignore",
+      ".editorconfig",
+      "gulpfile.js"
+    ],
     "rewrites": [
       {
         "source": "**",

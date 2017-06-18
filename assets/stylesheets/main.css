@@ -32,7 +32,8 @@ a,
 span,
 strong,
 input,
-select {
+select,
+label {
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
 }
@@ -103,11 +104,12 @@ select {
 .menu .menu-item {
   cursor: pointer;
   margin-top: 35px;
+  margin-left: 20px;
 }
 .menu .menu-item-icon {
   font-size: 1.5625rem;
-  width: 25%;
-  text-align: center;
+  width: 15%;
+  text-align: left;
 }
 .menu .menu-item-title {
   text-align: left;
@@ -140,6 +142,75 @@ select {
 }
 .menu .menu-user-location {
   font-size: 0.75rem;
+}
+.field-group {
+  position: relative;
+  padding: 0;
+  border: none;
+  overflow: visible;
+}
+.field-group .field-text {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 0 5px 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #212121;
+  font-size: 120%;
+  outline: none;
+  cursor: text;
+  background: transparent;
+  color: #212121;
+  font-family: 'Roboto', sans-serif;
+}
+.field-group .field-text:focus ~ .field-text-label,
+.field-group .field-text:valid ~ .field-text-label {
+  transform: scale(0.6);
+}
+.field-group .field-text-label {
+  position: absolute;
+  top: 10px;
+  font-size: 120%;
+  color: #212121;
+  transform-origin: 0 -150%;
+  transition: transform 300ms ease;
+  pointer-events: none;
+  left: 0;
+}
+.field-group .field-checkbox,
+.field-group .field-radio {
+  display: none;
+}
+.field-group .field-checkbox:checked ~ .field-radio-label,
+.field-group .field-radio:checked ~ .field-radio-label,
+.field-group .field-checkbox:checked ~ .field-checkbox-label,
+.field-group .field-radio:checked ~ .field-checkbox-label {
+  color: #212121;
+}
+.field-group .field-checkbox:checked ~ .field-radio-label .field-radio-label-icon,
+.field-group .field-radio:checked ~ .field-radio-label .field-radio-label-icon,
+.field-group .field-checkbox:checked ~ .field-checkbox-label .field-checkbox-label-icon,
+.field-group .field-radio:checked ~ .field-checkbox-label .field-checkbox-label-icon {
+  color: #212121;
+}
+.field-group .field-checkbox-label,
+.field-group .field-radio-label {
+  border-bottom: 1px solid #c8c7cc;
+  width: 100%;
+  display: block;
+  padding: 10px 0;
+  text-align: left;
+  position: relative;
+  color: #c8c7cc;
+}
+.field-group .field-radio-label-icon,
+.field-group .field-checkbox-label-icon {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  right: 10px;
+  color: #fff;
 }
 #login {
   text-align: center;
@@ -202,5 +273,74 @@ select {
   vertical-align: middle;
 }
 #find .find-map {
-  height: 100vh;
+  height: calc(100vh - 50px);
+}
+.register {
+  text-align: center;
+  position: relative;
+  height: calc(100vh - 50px);
+}
+.register .register-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.1875rem;
+  color: #212121;
+  z-index: 5;
+}
+.register .register-modal-button,
+.register .register-button {
+  color: #fff;
+  font-size: 0.875rem;
+  border-radius: 50px;
+  font-weight: 400;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: #212121;
+  border: none;
+  width: 100%;
+  padding: 10px 20px;
+}
+.register .register-button {
+  z-index: 5;
+  width: 90%;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 80px;
+}
+.register .register-map {
+  height: 100%;
+}
+.register .register-modal {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0 15px;
+}
+.register .register-modal-title {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 1.25rem;
+  color: #212121;
+  text-align: left;
+  font-weight: 500;
+}
+.register .register-modal-subtitle {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #212121;
+  text-align: left;
+  font-weight: 500;
+}
+.register .register-modal-button {
+  margin-top: 30px;
 }

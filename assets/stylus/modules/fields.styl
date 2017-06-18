@@ -1,0 +1,65 @@
+.field-group
+  position relative
+  padding 0
+  border none
+  overflow visible
+
+  .field-text
+    box-sizing border-box
+    width 100%
+    padding 15px 0 5px 0
+    border none
+    border-radius 0
+    box-shadow none
+    border-bottom 1px solid $shaft
+    font-size 120%
+    outline none
+    cursor text
+    background transparent
+    color $shaft
+    font-family $roboto
+
+    &:focus ~ .field-text-label,
+    &:valid ~ .field-text-label
+      transform scale(0.6)
+
+  .field-text-label
+    position absolute
+    top 10px
+    font-size 120%
+    color $shaft
+    transform-origin 0 -150%
+    transition transform 300ms ease
+    pointer-events none
+    left 0
+
+  .field-checkbox,
+  .field-radio
+    display none
+
+    &:checked ~ .field-radio-label,
+    &:checked ~ .field-checkbox-label
+      color $shaft
+
+    &:checked ~ .field-radio-label .field-radio-label-icon,
+    &:checked ~ .field-checkbox-label .field-checkbox-label-icon
+      color $shaft
+
+  .field-checkbox-label,
+  .field-radio-label
+    border-bottom 1px solid $gray
+    width 100%
+    display block
+    padding 10px 0
+    text-align left
+    position relative
+    color $gray
+
+  .field-radio-label-icon,
+  .field-checkbox-label-icon
+    top 50%
+    transform translateY(-50%)
+    position absolute
+    right 10px
+    color $white
+
