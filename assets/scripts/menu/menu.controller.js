@@ -2,9 +2,9 @@ angular
   .module('MenuController', [])
   .controller('MenuController', MenuController)
 
-  MenuController.$inject = ['$firebaseAuth', '$state']
+  MenuController.$inject = ['$firebaseAuth', '$state', 'AuthService']
 
-  function MenuController($firebaseAuth, $state) {
+  function MenuController($firebaseAuth, $state, AuthService) {
     var vm = this
 
     vm.firebaseAuth = $firebaseAuth()
@@ -17,20 +17,9 @@ angular
     vm.header = document.querySelector('.header')
     vm.main = document.querySelector('.main')
 
-    retrieveUser()
-      .then(user => {
-        vm.user = vm.firebaseAuth.$getAuth()
-      })
-
-    /**
-     * Recupera informações do usuário no provider.
-     */
-    function retrieveUser() {
-      return new Promise(resolve => {
-        vm.firebaseAuth
-          .$onAuthStateChanged(user => resolve(user))
-      })
-    }
+    AuthService
+      .retrieveUser()
+      .then(user => vm.user = user)
 
     /**
      * Realiza logout do provider.

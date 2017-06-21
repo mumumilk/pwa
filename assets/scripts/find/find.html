@@ -4,5 +4,10 @@
     center="current-location"
     zoom="18"
     disable-default-u-i="true">
+    <marker
+      ng-repeat="spot in vm.spots"
+      position="[{{ spot.position.lat }}, {{ spot.position.lng }}]"
+      on-click="vm.open(event, spot)">
+    </marker>
   </ng-map>
 </section

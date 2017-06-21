@@ -1,0 +1,52 @@
+.modal
+  position fixed
+  width 100%
+  min-height 100%
+  z-index 100
+  top 0
+  left 0
+
+  .modal-background
+    width 100%
+    min-height 100%
+    background rgba(10, 10, 10, 0.86)
+    position absolute
+
+  .modal-content
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    width 80%
+    text-align center
+    background $white
+    padding rem(20px)
+    box-shadow 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1)
+    border-radius rem(5px)
+
+  .modal-title
+    color $shaft
+    font-size rem(23px)
+    font-weight 400
+    margin-bottom 10px
+
+  .modal-description
+    color $shaft
+    font-size rem(15px)
+    margin-bottom 30px
+
+  .modal-icon
+    margin-bottom 20px
+    font-size rem(80px)
+
+  .modal-icon-success
+    color $green
+
+  .modal-icon-error
+    color $red
+
+  .modal-button
+    width 20%
+    margin 0 auto
+    display block
+    @extends .button-default

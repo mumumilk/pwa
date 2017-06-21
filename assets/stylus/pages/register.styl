@@ -8,23 +8,14 @@
     top 50%
     left 50%
     transform translate(-50%, -50%)
-    font-size rem(35px)
+    font-size rem(45px)
     color $shaft
     z-index 5
 
   .register-modal-button,
   .register-button
-    color $white
-    font-size rem(14px)
-    border-radius 50px
-    font-weight 400
-    letter-spacing rem(1px)
-    text-transform uppercase
-    cursor pointer
-    background $shaft
-    border none
-    width 100%
-    padding 10px 20px
+    @extends .button-default
+    @extends .button-default-full
 
   .register-button
     z-index 5

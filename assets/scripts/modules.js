@@ -2,6 +2,7 @@ angular
   .module('App', [
     'ngMap',
     'firebase',
+    'ModalDirective',
     'AuthService',
     'Settings',
     'Routes',
@@ -13,6 +14,7 @@ angular
     'FindController',
 
     'RegisterController',
+    'SpotsService',
 
     'SettingsController'
   ])

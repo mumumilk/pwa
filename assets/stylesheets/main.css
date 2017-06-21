@@ -37,6 +37,79 @@ label {
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
 }
+.button-default,
+.modal .modal-button,
+.register .register-modal-button,
+.register .register-button {
+  color: #fff;
+  font-size: 0.875rem;
+  border-radius: 50px;
+  font-weight: 400;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: #212121;
+  border: none;
+  padding: 10px 20px;
+}
+.button-default-full,
+.register .register-modal-button,
+.register .register-button {
+  width: 100%;
+  display: block;
+}
+.modal {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+.modal .modal-background {
+  width: 100%;
+  min-height: 100%;
+  background: rgba(10,10,10,0.86);
+  position: absolute;
+}
+.modal .modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+  background: #fff;
+  padding: 1.25rem;
+  box-shadow: 0 2px 3px rgba(10,10,10,0.1), 0 0 0 1px rgba(10,10,10,0.1);
+  border-radius: 0.3125rem;
+}
+.modal .modal-title {
+  color: #212121;
+  font-size: 1.4375rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.modal .modal-description {
+  color: #212121;
+  font-size: 0.9375rem;
+  margin-bottom: 30px;
+}
+.modal .modal-icon {
+  margin-bottom: 20px;
+  font-size: 5rem;
+}
+.modal .modal-icon-success {
+  color: #a5dc86;
+}
+.modal .modal-icon-error {
+  color: #f27474;
+}
+.modal .modal-button {
+  width: 20%;
+  margin: 0 auto;
+  display: block;
+}
 .header {
   background: #212121;
   width: 100%;
@@ -52,7 +125,7 @@ label {
   position: absolute;
   left: 15px;
   top: 50%;
-  font-size: 1.5rem;
+  font-size: 2.1875rem;
   transform: translateY(-50%);
   cursor: pointer;
 }
@@ -107,7 +180,7 @@ label {
   margin-left: 20px;
 }
 .menu .menu-item-icon {
-  font-size: 1.5625rem;
+  font-size: 1.75rem;
   width: 15%;
   text-align: left;
 }
@@ -285,23 +358,9 @@ label {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2.1875rem;
+  font-size: 2.8125rem;
   color: #212121;
   z-index: 5;
-}
-.register .register-modal-button,
-.register .register-button {
-  color: #fff;
-  font-size: 0.875rem;
-  border-radius: 50px;
-  font-weight: 400;
-  letter-spacing: 0.0625rem;
-  text-transform: uppercase;
-  cursor: pointer;
-  background: #212121;
-  border: none;
-  width: 100%;
-  padding: 10px 20px;
 }
 .register .register-button {
   z-index: 5;

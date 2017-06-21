@@ -3,50 +3,50 @@
     <h2 class="register-modal-title">Mais informações do pico</h2>
 
     <div class="field-group">
-      <input class="field-text" type="text" required>
+      <input class="field-text" type="text" required ng-model="vm.name">
       <label class="field-text-label">Nome do pico</label>
     </div>
 
     <h3 class="register-modal-subtitle">As modalidades no pico são</h3>
 
     <div class="field-group">
-      <input class="field-checkbox" id="longboard" type="checkbox">
+      <input class="field-checkbox" id="longboard" type="checkbox" ng-model="vm.modalities.longboard">
       <label class="field-checkbox-label" for="longboard">
         Longboard
-        <i class="field-checkbox-label-icon fa fa-check"></i>
+        <i class="field-checkbox-label-icon ion-checkmark"></i>
       </label>
     </div>
 
     <div class="field-group">
-      <input class="field-checkbox" id="street" type="checkbox">
+      <input class="field-checkbox" id="street" type="checkbox" ng-model="vm.modalities.street">
       <label class="field-checkbox-label" for="street">
         Street
-        <i class="field-checkbox-label-icon fa fa-check"></i>
+        <i class="field-checkbox-label-icon ion-checkmark"></i>
       </label>
     </div>
 
     <h3 class="register-modal-subtitle">O acesso ao pico é</h3>
     <div class="field-group">
-      <input class="field-radio" name="access" id="public" type="radio">
+      <input class="field-radio" name="access" id="public" type="radio" ng-model="vm.access" value="public" checked="checked">
       <label class="field-radio-label" for="public">
         Público
-        <i class="field-radio-label-icon fa fa-check"></i>
+        <i class="field-radio-label-icon ion-checkmark"></i>
       </label>
     </div>
 
     <div class="field-group">
-      <input class="field-radio" name="access" id="paid" type="radio">
+      <input class="field-radio" name="access" id="paid" type="radio" ng-model="vm.access" value="paid">
       <label class="field-radio-label" for="paid">
         Pago
-        <i class="field-radio-label-icon fa fa-check"></i>
+        <i class="field-radio-label-icon ion-checkmark"></i>
       </label>
     </div>
 
-    <input class="register-modal-button" type="submit" value="Adicionar pico">
+    <input class="register-modal-button" type="submit"  ng-click="vm.register()" value="Adicionar pico">
   </form>
 
-  <span class="register-marker fa fa-map-marker"></span>
-  <button class="register-button" ng-click="vm.nextStep()">Confirmar posição</button>
+  <span class="register-marker ion-location"></span>
+  <button class="register-button" ng-click="vm.nextStep()">Confirmar local</button>
 
   <ng-map
     class="register-map"
