@@ -18,19 +18,28 @@ angular
         controller: 'LoginController as vm'
       })
 
-      .state('menu.find', {
-        url: '/find',
-        templateUrl: 'assets/scripts/find/find.html',
-        controller: 'FindController as vm',
+      .state('menu.search', {
+        url: '/spots/search',
+        templateUrl: 'assets/scripts/spots/search/search.html',
+        controller: 'SearchController as vm',
         resolve: {
           isAuthenticated: AuthService => AuthService.isAuthenticated()
         }
       })
 
       .state('menu.register', {
-        url: '/register',
-        templateUrl: 'assets/scripts/register/register.html',
+        url: '/spots/register',
+        templateUrl: 'assets/scripts/spots/register/register.html',
         controller: 'RegisterController as vm',
+        resolve: {
+          isAuthenticated: AuthService => AuthService.isAuthenticated()
+        }
+      })
+
+      .state('menu.my', {
+        url: '/spots/my',
+        templateUrl: 'assets/scripts/spots/my/my.html',
+        controller: 'MyController as vm',
         resolve: {
           isAuthenticated: AuthService => AuthService.isAuthenticated()
         }

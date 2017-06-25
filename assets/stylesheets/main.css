@@ -1,15 +1,5 @@
 .container {
-  display: block;
-  font-size: 0;
-  margin: 0 auto;
-  max-width: 1024px;
-  padding: 0 0;
-  width: 100%;
-}
-@media only screen and (max-width: 1024px) {
-  .container {
-    padding: 0 15px;
-  }
+  padding: 0 15px;
 }
 .hidden {
   display: none !important;
@@ -39,8 +29,8 @@ label {
 }
 .button-default,
 .modal .modal-button,
-.register .register-modal-button,
-.register .register-button {
+.register .register-button,
+.settings .settings-button {
   color: #fff;
   font-size: 0.875rem;
   border-radius: 50px;
@@ -54,7 +44,7 @@ label {
 }
 .button-default-full,
 .register .register-modal-button,
-.register .register-button {
+.settings .settings-button {
   width: 100%;
   display: block;
 }
@@ -250,6 +240,7 @@ label {
   transition: transform 300ms ease;
   pointer-events: none;
   left: 0;
+  cursor: pointer;
 }
 .field-group .field-checkbox,
 .field-group .field-radio {
@@ -276,6 +267,7 @@ label {
   text-align: left;
   position: relative;
   color: #c8c7cc;
+  cursor: pointer;
 }
 .field-group .field-radio-label-icon,
 .field-group .field-checkbox-label-icon {
@@ -345,7 +337,10 @@ label {
   display: inline-block;
   vertical-align: middle;
 }
-#find .find-map {
+#search .search-map {
+  height: calc(100vh - 50px);
+}
+#my .my-map {
   height: calc(100vh - 50px);
 }
 .register {
@@ -364,7 +359,7 @@ label {
 }
 .register .register-button {
   z-index: 5;
-  width: 90%;
+  width: calc(100% - 30px);
   position: absolute;
   bottom: 50px;
   left: 50%;
@@ -382,7 +377,6 @@ label {
   top: 0;
   left: 0;
   z-index: 10;
-  padding: 0 15px;
 }
 .register .register-modal-title {
   margin-top: 20px;
@@ -401,5 +395,24 @@ label {
   font-weight: 500;
 }
 .register .register-modal-button {
+  margin-top: 30px;
+}
+.settings .settings-title {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 1.25rem;
+  color: #212121;
+  text-align: left;
+  font-weight: 500;
+}
+.settings .settings-subtitle {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #212121;
+  text-align: left;
+  font-weight: 500;
+}
+.settings .settings-button {
   margin-top: 30px;
 }

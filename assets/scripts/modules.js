@@ -11,9 +11,10 @@ angular
     'LoginController',
     'LoginService',
 
-    'FindController',
-
+    'SearchController',
     'RegisterController',
+    'MyController',
+
     'SpotsService',
 
     'SettingsController'

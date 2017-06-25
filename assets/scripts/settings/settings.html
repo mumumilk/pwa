@@ -1,0 +1,48 @@
+<section class="settings">
+  <form class="container">
+    <h2 class="settings-title">Configurações</h2>
+    <h3 class="settings-subtitle">Mostrar apenas picos de</h3>
+
+    <div class="field-group">
+      <input class="field-checkbox" id="all" type="checkbox" ng-model="vm.modalities.all">
+      <label class="field-checkbox-label" for="all">
+        Todas
+        <i class="field-checkbox-label-icon ion-checkmark"></i>
+      </label>
+    </div>
+
+    <div class="field-group">
+      <input class="field-checkbox" id="longboard" type="checkbox" ng-model="vm.modalities.longboard">
+      <label class="field-checkbox-label" for="longboard">
+        Longboard
+        <i class="field-checkbox-label-icon ion-checkmark"></i>
+      </label>
+    </div>
+
+    <div class="field-group">
+      <input class="field-checkbox" id="street" type="checkbox" ng-model="vm.modalities.street">
+      <label class="field-checkbox-label" for="street">
+        Street
+        <i class="field-checkbox-label-icon ion-checkmark"></i>
+      </label>
+    </div>
+
+    <div class="field-group">
+      <input class="field-checkbox" id="bowl" type="checkbox" ng-model="vm.modalities.bowl">
+      <label class="field-checkbox-label" for="bowl">
+        Bowl
+        <i class="field-checkbox-label-icon ion-checkmark"></i>
+      </label>
+    </div>
+
+    <div class="field-group">
+      <input class="field-checkbox" id="downhill" type="checkbox" ng-model="vm.modalities.downhill">
+      <label class="field-checkbox-label" for="downhill">
+        Downhill
+        <i class="field-checkbox-label-icon ion-checkmark"></i>
+      </label>
+    </div>
+
+    <input class="settings-button" type="submit" ng-click="vm.register()" value="Salvar configuração">
+  </form>
+</section>

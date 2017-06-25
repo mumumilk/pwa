@@ -12,14 +12,13 @@
     color $shaft
     z-index 5
 
-  .register-modal-button,
-  .register-button
-    @extends .button-default
+  .register-modal-button
     @extends .button-default-full
 
   .register-button
+    @extends .button-default
     z-index 5
-    width 90%
+    width calc(100% - 30px)
     position absolute
     bottom 50px
     left 50%
@@ -37,7 +36,6 @@
     top 0
     left 0
     z-index 10
-    padding 0 15px
 
   .register-modal-title
     margin-top 20px

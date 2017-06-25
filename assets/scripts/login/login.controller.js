@@ -13,8 +13,8 @@ angular
     function doLogin() {
       $firebaseAuth()
         .$signInWithPopup(vm.provider)
-        .then(user => {
-          $state.go('menu.find')
+        .then(data => {
+          $state.go('menu.search')
         })
         .catch(error => console.error(error))
     }

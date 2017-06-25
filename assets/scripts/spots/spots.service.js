@@ -22,11 +22,18 @@ angular
       return vm.spots.$add(spot)
     }
 
+    /**
+     * Obtem todos os picos.
+     */
     function retrieveAll() {
       return vm.spots.$loaded()
     }
 
-    function retrieveByUser() {
-
+    /**
+     * Obtem apenas os picos do usuário.
+     * @param {*} user
+     */
+    function retrieveByUser(user) {
+      console.log(user)
     }
   }
