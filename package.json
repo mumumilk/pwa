@@ -1,29 +1,25 @@
 {
-  "name": "app",
-  "version": "1.0.0",
-  "description": "> :ok_hand: Encontre aquele pico para sua sessão de skate.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ondetempico/app.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ondetempico/app/issues"
-  },
-  "homepage": "https://github.com/ondetempico/app#readme",
+  "name": "pwa",
+  "version": "2.0.0",
+  "private": true,
   "dependencies": {
-    "material-components-web": "^0.13.0"
+    "firebase": "^4.0.0",
+    "immutable": "^3.8.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-redux-firebase": "^1.5.1",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^1.0.17",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^5.0.0",
+    "redux-thunk": "^2.2.0"
   },
-  "devDependencies": {
-    "browser-sync": "^2.18.12",
-    "gride": "^0.5.2",
-    "gulp": "^3.9.1",
-    "gulp-stylus": "^2.6.0",
-    "rupture": "^0.6.2"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
