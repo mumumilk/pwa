@@ -1,5 +1,3 @@
-import firebase from 'firebase'
-import { firebaseAuth } from '../firebase'
 import {
   INIT_AUTH,
   SIGN_IN_ERROR,
@@ -7,16 +5,13 @@ import {
   SIGN_OUT_SUCCESS
 } from '../constants'
 
-function authenticate(provider) {
+export function signInWithFacebook(firebase) {
   return dispatch => {
-    firebaseAuth.signInWithPopup(provider)
+    firebase
+      .login({ provider: 'facebook', type: 'popup' })
       .then(result => dispatch(signInSuccess(result)))
       .catch(error => dispatch(signInError(error)))
   }
-}
-
-export function signInWithFacebook() {
-  return authenticate(new firebase.auth.FacebookAuthProvider())
 }
 
 export function initAuth(user) {
@@ -40,9 +35,9 @@ export function signInSuccess(result) {
   }
 }
 
-export function signOut() {
+export function signOut(firebase) {
   return dispatch => {
-    firebaseAuth.signOut()
+    firebase.signOut()
       .then(() => dispatch(signOutSuccess()))
   }
 }

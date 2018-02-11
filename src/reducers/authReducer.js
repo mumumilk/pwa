@@ -10,7 +10,7 @@ export const AuthState = new Record({
   id: null
 })
 
-export function authReducer(state = new AuthState(), {payload, type}) {
+export function authReducer(state = new AuthState(), { payload, type }) {
   switch (type) {
     case INIT_AUTH:
     case SIGN_IN_SUCCESS:

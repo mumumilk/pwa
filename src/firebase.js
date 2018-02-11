@@ -5,6 +5,3 @@ export const firebaseApp = firebase.initializeApp({
   authDomain: 'ondetempico.firebaseapp.com',
   databaseURL: 'https://ondetempico.firebaseio.com'
 })
-
-export const firebaseAuth = firebaseApp.auth()
-export const firebaseDb = firebaseApp.database()
