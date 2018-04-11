@@ -4,13 +4,19 @@ import classnames from 'classnames'
 const Button = ({
   black,
   white,
+  full,
+  large,
+  medium,
   text,
   onClick,
   ...props
 }) => {
   const classes = classnames('button', {
     black,
-    white
+    white,
+    full,
+    large,
+    medium
   })
 
   return (

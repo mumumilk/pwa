@@ -9,17 +9,15 @@ import { signInWithFacebook } from '../actions/authActions'
 import Button from '../components/Button'
 
 const Landing = props => (
-  <div>
+  <div className="landing">
     <div className="header">
-        <div className="logo">
-        </div>
+      <img className="logo" src="../statics/images/logo.svg" />
 
-        <div className="sign">
-          <Button black text="Saiba mais"></Button>
-          {/* <button onClick={props.signIn}>Oi</button> */}
-        </div>
-        <div></div>
+      <div className="sign">
+        <Button medium black text="Saiba mais" onClick={props.signIn}></Button>
+      </div>
     </div>
+
     <div>
 
     </div>
