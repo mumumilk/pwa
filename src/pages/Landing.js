@@ -14,12 +14,12 @@ const Landing = props => (
       <img className="logo" src="../statics/images/logo.svg" />
 
       <div className="sign">
-        <Button medium black text="Saiba mais" onClick={props.signIn}></Button>
+        <Button medium white text="Saiba mais" onClick={props.signIn}></Button>
       </div>
     </div>
 
-    <div>
-
+    <div className="body">
+      <h1 className="title">Em breve, encontre e compartilhe novos picos para sua sessão.</h1>
     </div>
   </div>
 )

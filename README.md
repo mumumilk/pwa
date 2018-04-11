@@ -3,4 +3,9 @@
 
 ## Para desenvolvedores
 
+### Realizando delivery
+```sh
+firebase deploy --only hosting -p public/
+```
+
 ## Licença

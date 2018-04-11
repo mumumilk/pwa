@@ -1,6 +1,10 @@
 .landing
   width 100%
   height 100vh
+  background url('../images/2.jpg')
+  background-position center
+  background-size cover
+  background-repeat no-repeat
 
   .header
     @extends .container
@@ -11,3 +15,17 @@
 
   .logo
     max-width rem(80px)
+
+  .body
+    @extends .container
+    display flex
+    flex-direction column
+    justify-content center
+    height calc(100% - 100px)
+
+  .title
+    max-width 600px
+    font-weight 700
+    color $white
+    font-size rem(54px)
+    letter-spacing rem(1px)
