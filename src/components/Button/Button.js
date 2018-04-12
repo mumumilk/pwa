@@ -20,7 +20,7 @@ const Button = ({
   })
 
   return (
-    <button className={classes} {...props}>
+    <button className={classes} onClick={onClick} {...props}>
       {text}
     </button>
   )

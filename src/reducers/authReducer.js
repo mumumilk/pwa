@@ -5,24 +5,24 @@ import {
   SIGN_OUT_SUCCESS
 } from '../constants'
 
-export const AuthState = new Record({
+export const initialState = {
   authenticated: false,
   id: null
-})
+}
 
-export function authReducer(state = new AuthState(), { payload, type }) {
+export function authReducer(state = initialState, { payload, type }) {
   switch (type) {
     case INIT_AUTH:
     case SIGN_IN_SUCCESS:
-      return state.merge({
+      return {
         authenticated: !!payload,
         id: payload ? payload.uid : null
-      })
+      }
 
     case SIGN_OUT_SUCCESS:
-      return new AuthState()
+      return initialState
 
     default:
-      return state
+      return initialState
   }
 }

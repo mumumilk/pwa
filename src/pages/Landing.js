@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -8,21 +8,35 @@ import { signInWithFacebook } from '../actions/authActions'
 
 import Button from '../components/Button'
 
-const Landing = props => (
-  <div className="landing">
-    <div className="header">
-      <img className="logo" src="../statics/images/logo.svg" />
+class Landing extends Component {
+  componentDidUpdate() {
+    const { history, auth } = this.props
 
-      <div className="sign">
-        <Button medium white text="Saiba mais" onClick={props.signIn}></Button>
+    if (auth.authenticated) {
+      history.push('/home')
+    }
+  }
+
+  render() {
+    return (
+      <div className="landing">
+        <div className="header">
+          <img className="logo" src="../statics/images/logo.svg" />
+
+          <div className="sign">
+            <Button medium white text="Saiba mais" onClick={this.props.signIn}></Button>
+          </div>
+        </div>
+
+        <div className="body">
+          <h1 className="title">Em breve, encontre e compartilhe novos picos para sua sessão.</h1>
+        </div>
       </div>
-    </div>
+    )
+  }
+}
 
-    <div className="body">
-      <h1 className="title">Em breve, encontre e compartilhe novos picos para sua sessão.</h1>
-    </div>
-  </div>
-)
+const mapStateToProps = state => state
 
 const mapDispatchToProps = (dispatch, state) => ({
   signIn: () => {
@@ -33,5 +47,5 @@ const mapDispatchToProps = (dispatch, state) => ({
 
 export default compose(
   withFirebase,
-  connect(null, mapDispatchToProps)
+  connect(mapStateToProps, mapDispatchToProps)
 )(Landing)
