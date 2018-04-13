@@ -6,7 +6,7 @@ De maneira colaborativa, skatistas compartilharem picos para que haja troca de c
 
 O compartilhamento de eventos, campeonatos relacionados ao skate e suas informações.
 
-Também, informações sobre skateshops e lojas relacionadas.
+Também, informações sobre skateshops e lojas relacionadas trazendo visibilidade para o público da mesma.
 
 ## Para desenvolvedores
 
@@ -15,6 +15,6 @@ Também, informações sobre skateshops e lojas relacionadas.
 npm run-script deploy 
 ```
 
-## Para contribuições
+## Contribuições
 
 ## Licença
