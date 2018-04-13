@@ -10,6 +10,11 @@ Também, informações sobre skateshops e lojas relacionadas trazendo visibilida
 
 ## Para desenvolvedores
 
+### Rodando aplicação em desenvolvimento
+```sh
+npm run start
+```
+
 ### Realizando deploy
 ```sh
 npm run-script deploy 
