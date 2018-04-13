@@ -15,4 +15,6 @@ Também, informações sobre skateshops e lojas relacionadas.
 npm run-script deploy 
 ```
 
+## Para contribuições
+
 ## Licença
