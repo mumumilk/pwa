@@ -1,7 +1,7 @@
 # Ondetempico
 > Encontre aquele pico para sua sessão de skate.
 
-## Como funciona
+## Motivação
 De maneira colaborativa, skatistas compartilharem picos para que haja troca de conhecimento entre os mesmos, com caracteristicas do local, sendo pagou ou público, street ou outra modalidade.
 
 O compartilhamento de eventos, campeonatos relacionados ao skate e suas informações.
@@ -18,3 +18,5 @@ npm run-script deploy
 ## Contribuições
 
 ## Licença
+
+[MIT © Ondetempico](https://github.com/ondetempico/pwa/blob/master/LICENSE.md)
