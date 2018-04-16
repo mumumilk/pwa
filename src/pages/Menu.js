@@ -6,19 +6,35 @@ import { Link } from 'react-router-dom'
 
 import { withFirebase } from 'react-redux-firebase'
 
-const Menu = props => (
-  <div className="menu">
-    <div className="header">
+const Menu = props => {
+  const { firebase } = props
 
-    </div>
+  return (
+    <div className="menu">
+      <div className="header">
+        <img className="photo" src={firebase.profile.avatarUrl} />
+        <h2 className="name">{firebase.profile.displayName}</h2>
+        <span className="role">Usuário</span>
+      </div>
 
-    <div className="body">
-      <Link className="link" to="">Todos os picos</Link>
+      <div className="body">
+        <Link className="link" to="">
+          <span className="link-icon fa fa-map"></span>
+          Todos os picos
+        </Link>
+
+        <Link className="link" to="">
+          <span className="link-icon fa fa-plus"></span>
+          Adicionar novo pico
+        </Link>
+      </div>
     </div>
-  </div>
-)
+  )
+}
+
+const mapStateToProps = state => state
 
 export default compose(
   withFirebase,
-  connect(null, null)
+  connect(mapStateToProps, null)
 )(Menu)

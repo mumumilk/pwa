@@ -38,7 +38,7 @@ class Landing extends Component {
 
 const mapStateToProps = state => state
 
-const mapDispatchToProps = (dispatch, state) => ({
+const mapActionsToProps = (dispatch, state) => ({
   signIn: () => {
     const { firebase } = state
     dispatch(signInWithFacebook(firebase))
@@ -47,5 +47,5 @@ const mapDispatchToProps = (dispatch, state) => ({
 
 export default compose(
   withFirebase,
-  connect(mapStateToProps, mapDispatchToProps)
+  connect(mapStateToProps, mapActionsToProps)
 )(Landing)

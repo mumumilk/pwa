@@ -1,11 +1,10 @@
-import { Record } from 'immutable'
 import {
   INIT_AUTH,
   SIGN_IN_SUCCESS,
   SIGN_OUT_SUCCESS
 } from '../constants'
 
-export const initialState = {
+const initialState = {
   authenticated: false,
   id: null
 }

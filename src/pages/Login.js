@@ -12,7 +12,7 @@ const Login = props => (
   </div>
 )
 
-const mapDispatchToProps = (dispatch, state) => ({
+const mapActionsToProps = (dispatch, state) => ({
   signIn: () => {
     const { firebase } = state
     dispatch(signInWithFacebook(firebase))
@@ -21,5 +21,5 @@ const mapDispatchToProps = (dispatch, state) => ({
 
 export default compose(
   withFirebase,
-  connect(null, mapDispatchToProps)
+  connect(null, mapActionsToProps)
 )(Login)
