@@ -31,10 +31,6 @@ class Home extends Component {
     this.props.fetchLocation()
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return true
-  }
-
   render() {
     return (
       <div className="home">
