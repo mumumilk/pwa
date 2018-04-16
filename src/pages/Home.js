@@ -14,7 +14,7 @@ import { withFirebase } from 'react-redux-firebase'
 
 import { fetchLocation } from '../actions/locationActions'
 
-const HomeMap = withScriptjs(withGoogleMap(props => {
+const MapWrapper = withScriptjs(withGoogleMap(props => {
   const { coords } = props.children
 
   return (
@@ -34,13 +34,13 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <HomeMap
+        <MapWrapper
           googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
           loadingElement="<div style={{ height: `100%` }} />"
           containerElement={<div style={{ height: `calc(100vh - 50px)` }} />}
           mapElement={<div style={{ height: `100%` }} />}>
           {this.props.geolocation}
-        </HomeMap>
+        </MapWrapper>
       </div>
     )
   }
