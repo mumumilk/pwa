@@ -1,8 +1,11 @@
-import { LOCATION_FETCHED } from '../constants'
+import { 
+  LOCATION_FETCHED,
+  LOCATION_NOT_FETCHED
+} from '../constants'
 
 export const fetchLocation = () => {
   const geolocation = navigator.geolocation
-  console.log('CHAMOU A API')
+
   const location = new Promise((resolve, reject) => {
     if (!geolocation) {
       reject(new Error('Not Supported'))
@@ -18,13 +21,20 @@ export const fetchLocation = () => {
   return dispatch => {
     location
       .then(result => dispatch(locationFetched(result)))
-      .catch(result => console.info(result))
+      .catch(result => dispatch(locationNotFetched(result)))
   }
 }
 
-export function locationFetched(location) {
+function locationFetched(result) {
   return {
     type: LOCATION_FETCHED,
-    payload: location
+    payload: result
+  }
+}
+
+function locationNotFetched(result) {
+  return {
+    type: LOCATION_NOT_FETCHED,
+    payload: result
   }
 }
