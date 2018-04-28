@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
 
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-
-import { withFirebase } from 'react-redux-firebase'
-
 import Menu from '../pages/Menu'
 
 class Main extends Component {
-
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.toggleMenu = this.toggleMenu.bind(this)
   }
@@ -20,14 +14,12 @@ class Main extends Component {
   }
 
   render() {
-    const title = this.props.location.pathname
-
     return (
       <div className="main">
         <Menu />
 
         <div className="content">
-          <div className="bar">
+            <div className="bar">
             <i className="icon fa fa-bars" onClick={this.toggleMenu}></i>
           </div>
 
@@ -38,7 +30,4 @@ class Main extends Component {
   }
 }
 
-export default compose(
-  withFirebase,
-  connect(null, null)
-)(Main)
+export default Main

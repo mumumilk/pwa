@@ -1,10 +1,8 @@
 import React from 'react'
+
 import { connect } from 'react-redux'
-import { compose } from 'redux'
 
-import { withFirebase } from 'react-redux-firebase'
-
-export default function(Component) {
+const AuthenticationContainer = Component => {
   class Authentication extends React.Component {
     componentWillMount() {
       const { auth, history } = this.props
@@ -21,8 +19,7 @@ export default function(Component) {
 
   const mapStateToProps = state => state
 
-  return compose(
-    withFirebase,
-    connect(mapStateToProps)
-  )(Authentication)
+  return connect(mapStateToProps)(Authentication)
 }
+
+export default AuthenticationContainer

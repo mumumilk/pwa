@@ -1,10 +1,11 @@
-import { 
+import {
   LOCATION_FETCHED,
   LOCATION_NOT_FETCHED
 } from '../constants'
 
-export const fetchLocation = () => {
+export function fetchLocation() {
   const geolocation = navigator.geolocation
+
 
   const location = new Promise((resolve, reject) => {
     if (!geolocation) {
