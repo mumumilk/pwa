@@ -6,7 +6,7 @@ const Loader = ({
 }) => {
   return (
     <div className="loader" {...props}>
-      <span className="loader__icon"></span>
+      <i className="loader__icon"></i>
       <div className="loader__description">{text}</div>
     </div>
   )

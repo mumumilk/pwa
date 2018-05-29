@@ -27,6 +27,16 @@ const Menu = props => {
           <span className="link-icon fa fa-plus"></span>
           Adicionar novo pico
         </Link>
+
+        <Link className="link" to="">
+          <span className="link-icon fa fa-trophy"></span>
+          Campeonatos
+        </Link>
+
+        <Link className="link" to="">
+          <span className="link-icon fa fa-shopping-bag"></span>
+          Skateshops
+        </Link>
       </div>
     </div>
   )

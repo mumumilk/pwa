@@ -15,8 +15,6 @@ class LocationContainer extends React.Component {
   }
 
   render() {
-    console.log('fetched', this.props)
-
     return (this.props.location.coords && this.props.google)
       ? <Map
         google={this.props.google}
