@@ -4,11 +4,16 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 
 import { withFirebase } from 'react-redux-firebase'
+
 import { signInWithFacebook } from '../actions/authActions'
 
 import Button from '../components/Button'
 
 class Landing extends Component {
+  constructor() {
+    super()
+  }
+
   componentDidUpdate() {
     const { history, auth } = this.props
 
@@ -36,8 +41,6 @@ class Landing extends Component {
   }
 }
 
-const mapStateToProps = state => state
-
 const mapActionsToProps = (dispatch, state) => ({
   signIn: () => {
     const { firebase } = state
@@ -45,7 +48,6 @@ const mapActionsToProps = (dispatch, state) => ({
   }
 })
 
-export default compose(
-  withFirebase,
-  connect(mapStateToProps, mapActionsToProps)
-)(Landing)
+const mapStateToProps = state => state
+
+export default compose(withFirebase, connect(mapStateToProps, mapActionsToProps))(Landing)

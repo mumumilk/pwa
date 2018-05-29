@@ -6,13 +6,12 @@ import {
 export function fetchLocation() {
   const geolocation = navigator.geolocation
 
-
   const location = new Promise((resolve, reject) => {
     if (!geolocation) {
       reject(new Error('Not Supported'))
     }
 
-    geolocation.getCurrentPosition((position) => {
+    geolocation.getCurrentPosition(position => {
       resolve(position)
     }, () => {
       reject (new Error('Permission denied'))
@@ -26,14 +25,14 @@ export function fetchLocation() {
   }
 }
 
-function locationFetched(result) {
+const locationFetched = result => {
   return {
     type: LOCATION_FETCHED,
     payload: result
   }
 }
 
-function locationNotFetched(result) {
+const locationNotFetched = result => {
   return {
     type: LOCATION_NOT_FETCHED,
     payload: result
