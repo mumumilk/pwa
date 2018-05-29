@@ -2,7 +2,7 @@
 > Encontre aquele pico para sua sessão de skate.
 
 ## Motivação
-De maneira colaborativa, skatistas compartilharem picos (locais para se praticar o esporte) para que haja troca de conhecimento entre estes, com características do local, sendo pago ou público, street ou outra modalidade.
+De maneira colaborativa, skatistas compartilharem picos (locais para se praticar o esporte) para que haja troca de conhecimento entre estes, com características do local, sendo pago ou público, street e outras modalidades.
 
 O compartilhamento de eventos e campeonatos relacionados ao skate e suas informações.
 
