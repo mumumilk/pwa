@@ -18,12 +18,12 @@ const Menu = props => {
       </div>
 
       <div className="body">
-        <Link className="link" to="">
+        <Link className="link" to="/spots/list">
           <span className="link-icon fa fa-map"></span>
           Todos os picos
         </Link>
 
-        <Link className="link" to="">
+        <Link className="link" to="/spots/new">
           <span className="link-icon fa fa-plus"></span>
           Adicionar novo pico
         </Link>

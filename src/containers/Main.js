@@ -10,6 +10,9 @@ class Main extends Component {
   }
 
   toggleMenu() {
+    const MENU_HIDDEN_MODIFIER = 'menu--hidden'
+    const CONTENT_MODIFIER = 'content--fullable'
+
     const close = () => {
       menu.classList.remove(MENU_HIDDEN_MODIFIER)
       content.classList.remove(CONTENT_MODIFIER)
@@ -19,9 +22,6 @@ class Main extends Component {
       menu.classList.add(MENU_HIDDEN_MODIFIER)
       content.classList.add(CONTENT_MODIFIER)
     }
-
-    const MENU_HIDDEN_MODIFIER = 'menu--hidden'
-    const CONTENT_MODIFIER = 'content--fullable'
 
     let menu = document.querySelector('.menu')
     let content = document.querySelector('.content')

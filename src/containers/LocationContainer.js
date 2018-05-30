@@ -17,9 +17,9 @@ class LocationContainer extends React.Component {
   render() {
     return (this.props.location.coords && this.props.google)
       ? <Map
-        google={this.props.google}
-        zoom={17}
-        initialCenter={{ lat: this.props.location.coords.latitude, lng: this.props.location.coords.longitude }} />
+          google={this.props.google}
+          zoom={17}
+          initialCenter={{ lat: this.props.location.coords.latitude, lng: this.props.location.coords.longitude }} />
       : <Loader text="Carregando picos mais próximos" />
   }
 }

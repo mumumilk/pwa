@@ -7,7 +7,7 @@ import { withFirebase } from 'react-redux-firebase'
 
 const Settings = props => (
   <div className="settings">
-    <h1>OOOOOOOOOAA</h1>
+    <h1></h1>
   </div>
 )
 

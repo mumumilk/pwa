@@ -1,31 +1,63 @@
 .landing
-  width 100%
-  height 100vh
-  background url('../images/2.jpg')
-  background-position center
-  background-size cover
-  background-repeat no-repeat
+  .home
+    width 100%
+    height 100vh
+    background url('../images/2.jpg')
+    background-position center
+    background-size cover
+    background-repeat no-repeat
 
-  .header
+    &__header
+      @extends .container
+      display flex
+      justify-content space-between
+      align-items center
+      padding-top 20px
+
+    &__logo
+      max-width rem(80px)
+
+    &__body
+      @extends .container
+      display flex
+      flex-direction column
+      justify-content center
+      height calc(100% - 100px)
+
+    &__title
+      max-width 600px
+      font-weight 700
+      color $white
+      font-size rem(54px)
+      letter-spacing rem(1px)
+
+  .spots
     @extends .container
+    width 100%
+    height 100vh
     display flex
-    justify-content space-between
-    align-items center
-    padding-top 20px
 
-  .logo
-    max-width rem(80px)
+    &__image,
+    &__explanation
+      max-width 50%
+      margin-top 50px
+      margin-bottom 50px
+      width 100%
 
-  .body
-    @extends .container
-    display flex
-    flex-direction column
-    justify-content center
-    height calc(100% - 100px)
+    &__image
+      background-image url("../images/4.jpg")
+      background-size cover
+      background-position center
+      margin-right 50px
 
-  .title
-    max-width 600px
-    font-weight 700
-    color $white
-    font-size rem(54px)
-    letter-spacing rem(1px)
+    &__explanation
+      margin-left 50px
+
+    &__title
+      font-size rem(35px)
+      color $shaft
+      margin-bottom 10px
+
+    &__description
+      color $shaft
+      margin-bottom 20px
