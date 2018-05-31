@@ -1,0 +1,46 @@
+.input-group
+  padding 0
+  border none
+  overflow visible
+  position relative
+
+  &--large
+    width 100%
+
+  &--medium
+    width 50%
+
+  +below('m')
+    width 100%
+
+  &__label
+    position absolute
+    top 14px
+    left 0
+    transform-origin 0 -150%
+    transition transform 300ms ease
+    display block
+    font-family $roboto
+    color $shaft
+    padding-left 10px
+    cursor pointer
+    pointer-events none
+    font-size rem(15px)
+
+  &__input
+    width 100%
+    padding 15px 0 15px 10px
+    font-size rem(15px)
+    border none
+    border-radius 0
+    box-shadow none
+    border-bottom 1px solid $shaft
+    outline none
+    cursor text
+    background transparent
+    color $shaft
+    font-family $roboto
+
+    &:focus ~ .input-group__label,
+    &:valid ~ .input-group__label
+      transform scale(0.6)
