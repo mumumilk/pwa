@@ -1,7 +1,39 @@
 .new-spot
-  @extends .container
-  margin-top 40px
+  position relative
+  width 100%
+  height calc(100vh - 50px)
+
+  &__content
+    @extends .container
+    height calc(100vh - 50px)
+    z-index 10
+    padding-top 40px
+    display none
+    position absolute
+    top 0
+    left 0
+    background $white
+
+  &__location
+    position absolute
+    left 0
+    top 0
 
   &__title
     margin-bottom 20px
     color $shaft
+
+  &__button
+    position absolute
+    bottom 20px
+    z-index 5
+    margin 0 10px
+    width calc(100% - 20px)
+
+  &__marker
+    position absolute
+    left 50%
+    top 50%
+    transform translate(-50%, -50%)
+    z-index 5
+    font-size rem(25px)

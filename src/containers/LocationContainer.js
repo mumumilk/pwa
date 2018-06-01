@@ -1,13 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Map, GoogleApiWrapper } from 'google-maps-react'
+
+import Container from '../Container'
 
 import { fetchLocation } from '../actions/locationActions'
+
 import Loader from '../components/Loader'
-import { Map, GoogleApiWrapper } from 'google-maps-react'
+import EventType from '../EventType'
 
 class LocationContainer extends React.Component {
   constructor(props) {
     super(props)
+
+    this.getSpotLocationToRegister = this.getSpotLocationToRegister.bind(this)
+
+    Container.get('Event').add(EventType.REGISTER_SPOT_LOCATION_WAS_CONFIRMED, this.getSpotLocationToRegister)
+  }
+
+  getSpotLocationToRegister() {
+    console.log('retrieve center of map')
   }
 
   componentDidMount() {
@@ -25,7 +37,7 @@ class LocationContainer extends React.Component {
 }
 
 const mapActionsToProps = dispatch => ({
-  fetchLocation: () => dispatch(fetchLocation())
+  fetchLocation: () => dispatch(fetchLocation()),
 })
 
 const mapStateToProps = state => state

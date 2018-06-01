@@ -3,6 +3,10 @@ import {
   LOCATION_NOT_FETCHED
 } from '../constants'
 
+export function fetchPosition() {
+  
+}
+
 export function fetchLocation() {
   const geolocation = navigator.geolocation
 

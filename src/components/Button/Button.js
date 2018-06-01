@@ -9,6 +9,7 @@ const Button = ({
   medium,
   text,
   onClick,
+  className,
   ...props
 }) => {
   const classes = classnames('button', {
@@ -20,7 +21,7 @@ const Button = ({
   })
 
   return (
-    <button className={classes} onClick={onClick} {...props}>
+    <button className={`${className} ${classes}`} onClick={onClick} {...props}>
       {text}
     </button>
   )

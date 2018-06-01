@@ -10,10 +10,6 @@ import { signInWithFacebook } from '../actions/authActions'
 import Button from '../components/Button'
 
 class Landing extends Component {
-  constructor() {
-    super()
-  }
-
   componentDidUpdate() {
     const { history, auth } = this.props
 

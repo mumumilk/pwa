@@ -20,7 +20,8 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.0.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "wolfy87-eventemitter": "^5.2.4"
   },
   "scripts": {
     "start": "npm-run-all -p watch-js watch-css",
