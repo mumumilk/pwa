@@ -13,6 +13,7 @@ class Event {
 
   /**
    * @param {string} eventType
+   * @param {Function} listener
    */
   add(eventType, listener) {
     this.event.addListener(eventType, listener)

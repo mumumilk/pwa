@@ -2,24 +2,29 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Map, GoogleApiWrapper } from 'google-maps-react'
 
-import Container from '../Container'
+import RecordableSpot from '../queryModel/spots/RecordableSpot'
 
 import { fetchLocation } from '../actions/locationActions'
+import { recordSpotLocation } from '../actions/spotActions'
 
 import Loader from '../components/Loader'
-import EventType from '../EventType'
 
 class LocationContainer extends React.Component {
   constructor(props) {
     super(props)
 
+    this.getCenter = this.getCenter.bind(this)
     this.getSpotLocationToRegister = this.getSpotLocationToRegister.bind(this)
-
-    Container.get('Event').add(EventType.REGISTER_SPOT_LOCATION_WAS_CONFIRMED, this.getSpotLocationToRegister)
   }
 
   getSpotLocationToRegister() {
-    console.log('retrieve center of map')
+
+  }
+
+  getCenter(props, map) {
+    const recordableSpot = new RecordableSpot(map.center.lat(), map.center.lng(), map.zoom)
+
+    this.props.recordSpotLocation(recordableSpot)
   }
 
   componentDidMount() {
@@ -31,6 +36,7 @@ class LocationContainer extends React.Component {
       ? <Map
           google={this.props.google}
           zoom={17}
+          onDragend={this.getCenter}
           initialCenter={{ lat: this.props.location.coords.latitude, lng: this.props.location.coords.longitude }} />
       : <Loader text="Carregando picos mais próximos" />
   }
@@ -38,10 +44,12 @@ class LocationContainer extends React.Component {
 
 const mapActionsToProps = dispatch => ({
   fetchLocation: () => dispatch(fetchLocation()),
+  recordSpotLocation: (recordableSpot) => dispatch(recordSpotLocation(recordableSpot))
 })
 
 const mapStateToProps = state => state
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCFD7Qay7_Wzw9JH3NqBMnlPBgRpmi2YDo'
+  apiKey: 'AIzaSyCFD7Qay7_Wzw9JH3NqBMnlPBgRpmi2YDo',
+  LoadingContainer: Loader
 })(connect(mapStateToProps, mapActionsToProps)(LocationContainer))

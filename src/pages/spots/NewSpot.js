@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 
-import Container from '../../Container'
-
 import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
+import Event from '../../Event'
 
 import LocationContainer from '../../containers/LocationContainer'
-import EventType from '../../EventType'
 
 class NewSpot extends Component {
+
+  /**
+   * @type Event
+   */
+  event;
+
   constructor(props) {
     super(props)
 
@@ -16,7 +20,8 @@ class NewSpot extends Component {
   }
 
   registerSpotLocationConfirmed() {
-    Container.get('Event').dispatch(EventType.REGISTER_SPOT_LOCATION_WAS_CONFIRMED)
+    let content = document.querySelector('.new-spot__content')
+    content.classList.add('new-spot__content--visible')
   }
 
   render() {
@@ -30,13 +35,27 @@ class NewSpot extends Component {
               medium
               id="name"
               label="Nome do pico" />
+
+            <Button
+              full
+              black
+              className="new-spot__form__button"
+              text="Salvar esse local" />
           </form>
         </div>
 
         <i className="fa fa-map-marker new-spot__marker"></i>
-        <Button onClick={this.registerSpotLocationConfirmed} className="new-spot__button" full black text="Confirmar local" />
 
-        <LocationContainer className="new-spot__location" />
+        <Button
+          full
+          black
+          onClick={this.registerSpotLocationConfirmed}
+          className="new-spot__button"
+          text="Confirmar local" />
+
+        <LocationContainer
+          event={this.event}
+          className="new-spot__location" />
       </div>
     )
   }
