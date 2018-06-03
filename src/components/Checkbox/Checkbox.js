@@ -1,9 +1,9 @@
 import React from 'react'
 import classnames from 'classnames'
 
-const MODIFIER = 'input-group'
+const MODIFIER = 'checkbox-group'
 
-const Input = ({
+const Checkbox = ({
   black,
   white,
   full,
@@ -25,20 +25,22 @@ const Input = ({
   })
 
   return (
-    <div className={`input-group ${classes}`}>
+    <div className={`checkbox-group ${classes}`}>
       <input
         id={id}
         name={id}
-        className="input-group__input"
-        type="text"
-        onClick={onClick}
+        className="checkbox-group__checkbox"
+        type="checkbox"
         onChange={onChange}
-        value={value}
         {...props} />
 
-      <label className="input-group__label" htmlFor={id}>{label}</label>
+      <label className="checkbox-group__label" htmlFor={id}>
+        {label}
+
+        <i className="checkbox-group__label__icon fa fa-check"></i>
+      </label>
     </div>
   )
 }
 
-export default Input
+export default Checkbox

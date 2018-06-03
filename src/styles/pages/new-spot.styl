@@ -4,7 +4,7 @@
   height calc(100vh - 50px)
 
   &__content
-    @extends .container
+    width 100%
     height calc(100vh - 50px)
     z-index 10
     padding-top 40px
@@ -16,6 +16,13 @@
 
     &--visible
       display block
+
+  &__container
+    @extends .container
+
+  &__form
+    &__button
+      margin-top 20px
 
   &__location
     position absolute

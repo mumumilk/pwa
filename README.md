@@ -1,5 +1,5 @@
 # Ondetempico
-> Encontre aquele pico para sua sessão de skate.
+> Em breve, encontre novos picos para andar de skate.
 
 ## Motivação
 De maneira colaborativa, skatistas compartilharem picos (locais para se praticar o esporte) para que haja troca de conhecimento entre estes, com características do local, sendo pago ou público, street e outras modalidades.
@@ -21,6 +21,7 @@ npm run-script deploy
 ```
 
 ## Contribuições
+Todas as tarefas dessa aplicação estão sendo mapeadas em nosso board, clique [aqui](https://github.com/ondetempico/pwa/projects/1) e confira.
 
 ## Licença
 

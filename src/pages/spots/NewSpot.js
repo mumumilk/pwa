@@ -5,6 +5,7 @@ import Button from '../../components/Button/Button'
 import Event from '../../Event'
 
 import LocationContainer from '../../containers/LocationContainer'
+import Checkbox from "../../components/Checkbox/Checkbox";
 
 class NewSpot extends Component {
 
@@ -28,20 +29,33 @@ class NewSpot extends Component {
     return (
       <div className="new-spot">
         <div className="new-spot__content">
-          <h1 className="new-spot__title">Cadastrar novo pico</h1>
+          <div className="new-spot__container">
+            <h1 className="new-spot__title">Cadastrar novo pico</h1>
 
-          <form className="new-spot__form">
-            <Input
-              medium
-              id="name"
-              label="Nome do pico" />
+            <form className="new-spot__form">
+              <Input
+                medium
+                required
+                id="name"
+                label="Nome do pico" />
 
-            <Button
-              full
-              black
-              className="new-spot__form__button"
-              text="Salvar esse local" />
-          </form>
+              <Checkbox
+                medium
+                id="street"
+                label="Street" />
+
+              <Checkbox
+                medium
+                id="longboard"
+                label="Longboard" />
+
+              <Button
+                full
+                black
+                className="new-spot__form__button"
+                text="Salvar esse local" />
+            </form>
+          </div>
         </div>
 
         <i className="fa fa-map-marker new-spot__marker"></i>
@@ -51,7 +65,7 @@ class NewSpot extends Component {
           black
           onClick={this.registerSpotLocationConfirmed}
           className="new-spot__button"
-          text="Confirmar local" />
+          text="Confirmar essa posição" />
 
         <LocationContainer
           event={this.event}
