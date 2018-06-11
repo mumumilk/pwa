@@ -5,8 +5,6 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "firebase": "^4.9.1",
-    "google-maps-react": "^2.0.2",
-    "immutable": "^3.8.2",
     "react": "^16.3.0",
     "react-dom": "^16.2.0",
     "react-emitter": "^1.0.4",
@@ -19,11 +17,11 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.0.17",
+    "recompose": "^0.27.1",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.0.0",
-    "redux-thunk": "^2.2.0",
-    "wolfy87-eventemitter": "^5.2.4"
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "npm-run-all -p watch-js watch-css",

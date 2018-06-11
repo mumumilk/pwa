@@ -11,7 +11,11 @@ class RecordableSpot {
    * @param longitude
    * @param zoom
    */
-  constructor(latitude, longitude, zoom) {
+  constructor(
+    latitude,
+    longitude,
+    zoom
+  ) {
     this.longitude = longitude
     this.latitude = latitude
     this.zoom = zoom

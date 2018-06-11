@@ -8,7 +8,7 @@ import { firebaseReducer } from 'react-redux-firebase'
 const reducers = combineReducers({
   auth: authReducer,
   location: locationReducer,
-  firebase: firebaseReducer,
+  api: firebaseReducer,
   spot: spotReducer
 })
 

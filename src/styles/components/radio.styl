@@ -1,0 +1,30 @@
+.radio-group
+  margin-bottom 10px
+
+  &__radio
+    display none
+
+    &:checked ~ .radio-group__label
+      color $gray
+
+    &:checked ~ .radio-group__label .radio-group__label__icon
+      color $gray
+
+  &__label
+    width 100%
+    display block
+    text-align left
+    font-family $roboto
+    position relative
+    color $gray
+    cursor pointer
+    font-size rem(14px)
+    border-bottom 1px solid $cornflower
+    padding 10px 5px
+
+    &__icon
+      top 50%
+      transform translateY(-50%)
+      position absolute
+      right 10px
+      color $white

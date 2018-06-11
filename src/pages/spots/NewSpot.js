@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
 
+import { withHandlers } from 'recompose'
+
 import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
-import Event from '../../Event'
+import Radio from '../../components/Radio/Radio'
+import Checkbox from '../../components/Checkbox/Checkbox'
 
 import LocationContainer from '../../containers/LocationContainer'
-import Checkbox from "../../components/Checkbox/Checkbox";
 
 class NewSpot extends Component {
-
-  /**
-   * @type Event
-   */
-  event;
-
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.registerSpotLocationConfirmed = this.registerSpotLocationConfirmed.bind(this)
+    this.formSpotWasSubmit = this.formSpotWasSubmit.bind(this)
   }
 
   registerSpotLocationConfirmed() {
@@ -25,19 +22,36 @@ class NewSpot extends Component {
     content.classList.add('new-spot__content--visible')
   }
 
+  formSpotWasSubmit(event) {
+    event.preventDefault()
+    const { name, street, longboard, free } = event.target
+
+    const data = {
+      name: name.value,
+      hasFree: !!free.checked,
+      modalities: {
+        street: street.checked,
+        longboard: longboard.checked,
+      }
+    }
+
+    this.props.recordSpot(data)
+  }
+
   render() {
     return (
       <div className="new-spot">
         <div className="new-spot__content">
           <div className="new-spot__container">
-            <h1 className="new-spot__title">Cadastrar novo pico</h1>
+            <h1 className="new-spot__title">Adicionar novo pico</h1>
 
-            <form className="new-spot__form">
+            <form className="new-spot__form" onSubmit={this.formSpotWasSubmit}>
               <Input
-                medium
                 required
                 id="name"
                 label="Nome do pico" />
+
+              <h3 className="new-spot__label">Esse pico é sugerido para qual modalidade?, Selecione as categorias.</h3>
 
               <Checkbox
                 medium
@@ -48,6 +62,19 @@ class NewSpot extends Component {
                 medium
                 id="longboard"
                 label="Longboard" />
+
+              <h3 className="new-spot__label">É necessário pagar para andar aí?, Marque a opção.</h3>
+
+              <Radio
+                name="cost"
+                id="paid"
+                label="O acesso é pago" />
+
+              <Radio
+                name="cost"
+                defaultChecked
+                id="free"
+                label="O acesso é gratuito" />
 
               <Button
                 full
@@ -75,4 +102,14 @@ class NewSpot extends Component {
   }
 }
 
-export default NewSpot
+const mapHandlers = ({
+  recordSpot: props => data => {
+    return props.firebase.push('spots', {
+      location: props.spot,
+      uid: props.auth.id,
+      data
+    })
+  }
+})
+
+export default withHandlers(mapHandlers)(NewSpot)

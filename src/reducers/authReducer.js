@@ -14,8 +14,9 @@ export function authReducer(state = initialState, { payload, type }) {
     case INIT_AUTH:
     case SIGN_IN_SUCCESS:
       return {
+        ...state,
         authenticated: !!payload,
-        id: payload ? payload.uid : null
+        id: payload.uid
       }
 
     case SIGN_OUT_SUCCESS:

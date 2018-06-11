@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
-import { compose } from 'redux'
-
-import { withFirebase } from 'react-redux-firebase'
 
 import { signInWithFacebook } from '../actions/authActions'
 
 import Button from '../components/Button'
 
 class Landing extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   componentDidUpdate() {
     const { history, auth } = this.props
+
+    console.log(this.props)
 
     if (auth.authenticated) {
       history.push('/spots/list')
@@ -57,4 +60,4 @@ const mapActionsToProps = (dispatch, state) => ({
 
 const mapStateToProps = state => state
 
-export default compose(withFirebase, connect(mapStateToProps, mapActionsToProps))(Landing)
+export default connect(mapStateToProps, mapActionsToProps)(Landing)

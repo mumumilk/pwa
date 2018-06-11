@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom'
 import { withFirebase } from 'react-redux-firebase'
 
 const Menu = props => {
-  const { firebase } = props
+  const { api } = props
 
   return (
     <div className="menu">
       <div className="header">
-        <img className="photo" src={firebase.profile.avatarUrl} />
-        <h2 className="name">{firebase.profile.displayName}</h2>
+        <img className="photo" src={api.profile.avatarUrl} />
+        <h2 className="name">{api.profile.displayName}</h2>
         <span className="role">Usuário</span>
       </div>
 
@@ -44,7 +44,4 @@ const Menu = props => {
 
 const mapStateToProps = state => state
 
-export default compose(
-  withFirebase,
-  connect(mapStateToProps, null)
-)(Menu)
+export default compose(withFirebase, connect(mapStateToProps, null))(Menu)

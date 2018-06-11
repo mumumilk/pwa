@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Map, GoogleApiWrapper } from 'google-maps-react'
+import { compose, withProps } from 'recompose'
+import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps'
 
 import RecordableSpot from '../queryModel/spots/RecordableSpot'
 
@@ -9,16 +10,11 @@ import { recordSpotLocation } from '../actions/spotActions'
 
 import Loader from '../components/Loader'
 
-class LocationContainer extends React.Component {
+class LocationContainer extends Component {
   constructor(props) {
     super(props)
 
     this.getCenter = this.getCenter.bind(this)
-    this.getSpotLocationToRegister = this.getSpotLocationToRegister.bind(this)
-  }
-
-  getSpotLocationToRegister() {
-
   }
 
   getCenter(props, map) {
@@ -32,24 +28,34 @@ class LocationContainer extends React.Component {
   }
 
   render() {
-    return (this.props.location.coords && this.props.google)
-      ? <Map
-          google={this.props.google}
-          zoom={17}
-          onDragend={this.getCenter}
-          initialCenter={{ lat: this.props.location.coords.latitude, lng: this.props.location.coords.longitude }} />
-      : <Loader text="Carregando picos mais próximos" />
+    return Object.keys(this.props.location).length !== 0
+      ? <GoogleMap
+          defaultZoom={17}
+          defaultCenter={{ lat: this.props.location.coords.latitude, lng: this.props.location.coords.longitude }}>
+
+          {this.props.children}
+        </GoogleMap>
+      : <Loader text="Carregando mapa" />
   }
 }
 
 const mapActionsToProps = dispatch => ({
   fetchLocation: () => dispatch(fetchLocation()),
-  recordSpotLocation: (recordableSpot) => dispatch(recordSpotLocation(recordableSpot))
+  recordSpotLocation: recordableSpot => dispatch(recordSpotLocation(recordableSpot))
 })
 
 const mapStateToProps = state => state
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCFD7Qay7_Wzw9JH3NqBMnlPBgRpmi2YDo',
-  LoadingContainer: Loader
-})(connect(mapStateToProps, mapActionsToProps)(LocationContainer))
+const MapProps = {
+  googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCFD7Qay7_Wzw9JH3NqBMnlPBgRpmi2YDo&v=3.exp&libraries=geometry,places',
+  loadingElement: <Loader text="Carregando mapa" />,
+  containerElement: <div style={{ height: `100vh` }} />,
+  mapElement: <div style={{ height: `100%` }} />
+}
+
+export default compose(
+  withProps(MapProps),
+  withScriptjs,
+  withGoogleMap,
+  connect(mapStateToProps, mapActionsToProps)
+)(LocationContainer)
