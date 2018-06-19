@@ -23,6 +23,6 @@ export function authReducer(state = initialState, { payload, type }) {
       return initialState
 
     default:
-      return initialState
+      return state
   }
 }

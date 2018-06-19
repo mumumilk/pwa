@@ -1,7 +1,5 @@
 import React from 'react'
-import { Route, Switch, HashRouter as Router } from 'react-router-dom'
-
-import { withFirebase } from 'react-redux-firebase'
+import { Route, Switch } from 'react-router-dom'
 
 import Landing from './pages/Landing'
 import Settings from './pages/Preferences'
@@ -12,22 +10,19 @@ import ListSpots from './pages/spots/ListSpots'
 
 import Main from './containers/Main'
 import AuthenticationContainer from './containers/AuthenticationContainer'
-import FirebaseContainer from './containers/FirebaseContainer'
+import DependenciesContainer from './containers/DependenciesContainer'
 
 const App = () => (
-  <Router>
-    <Switch>
-      <Route exact path='/' component={FirebaseContainer(Landing)} />
+  <Switch>
+    <Route exact path='/' component={DependenciesContainer(Landing)} />
 
-      <Main>
-        <Route path='/settings' component={AuthenticationContainer(Settings)} />
-
-        <Route path='/spots/list' component={AuthenticationContainer(FirebaseContainer(ListSpots))} />
-        <Route path='/spots/new' component={AuthenticationContainer(FirebaseContainer(NewSpot))} />
-        <Route path='/spots/analyze' component={AuthenticationContainer(FirebaseContainer(AnalyzeSpot))} />
-      </Main>
-    </Switch>
-  </Router>
+    <Main>
+      <Route path='/settings' component={AuthenticationContainer(Settings)} />
+      <Route path='/spots/list' component={AuthenticationContainer(DependenciesContainer(ListSpots))} />
+      <Route path='/spots/new' component={AuthenticationContainer(DependenciesContainer(NewSpot))} />
+      <Route path='/spots/analyze' component={AuthenticationContainer(DependenciesContainer(AnalyzeSpot))} />
+    </Main>
+  </Switch>
 )
 
-export default withFirebase(App)
+export default App

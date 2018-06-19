@@ -7,16 +7,11 @@ import { signInWithFacebook } from '../actions/authActions'
 import Button from '../components/Button'
 
 class Landing extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentDidUpdate() {
     const { history, auth } = this.props
 
-    console.log(this.props)
-
     if (auth.authenticated) {
+
       history.push('/spots/list')
     }
   }

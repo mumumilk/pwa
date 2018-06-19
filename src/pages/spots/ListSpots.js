@@ -18,8 +18,9 @@ class ListSpots extends Component {
   constructor(props) {
     super(props)
 
-    this.getSpots()
     this.collection = new ListableSpotCollection()
+
+    this.getSpots()
   }
 
   componentDidMount() {
