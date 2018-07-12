@@ -7,7 +7,7 @@ const AuthenticationContainer = Component => {
     componentWillMount() {
       const { auth, history } = this.props
 
-      if (auth.authenticated) {
+      if (!auth.authenticated) {
         history.push('/')
       }
     }

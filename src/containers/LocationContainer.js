@@ -49,7 +49,7 @@ const mapStateToProps = state => state
 const MapProps = {
   googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCFD7Qay7_Wzw9JH3NqBMnlPBgRpmi2YDo&v=3.exp&libraries=geometry,places',
   loadingElement: <Loader text="Carregando mapa" />,
-  containerElement: <div style={{ height: `100vh` }} />,
+  containerElement: <div style={{ height: `calc(100vh - 50px)` }} />,
   mapElement: <div style={{ height: `100%` }} />
 }
 
