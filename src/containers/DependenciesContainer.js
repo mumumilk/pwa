@@ -3,7 +3,6 @@ import React from 'react'
 import { compose } from 'recompose'
 
 import { withFirebase } from 'react-redux-firebase'
-import { withRouter } from 'react-router-dom'
 
 const DependenciesContainer = Component => {
   class Dependencies extends React.Component {
@@ -14,7 +13,7 @@ const DependenciesContainer = Component => {
     }
   }
 
-  return compose(withFirebase, withRouter)(Dependencies)
+  return compose(withFirebase)(Dependencies)
 }
 
 export default DependenciesContainer
