@@ -10,8 +10,6 @@ class Landing extends Component {
   componentDidUpdate(prevProps) {
     const { history, auth } = this.props
 
-    console.log('PROPS ANTIGAS', prevProps)
-
     if (auth.authenticated && !prevProps.auth.authenticated) {
       history.push('/spots/list')
     }

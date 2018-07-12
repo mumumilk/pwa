@@ -1,7 +1,4 @@
-import {
-  LOCATION_FETCHED,
-  LOCATION_NOT_FETCHED
-} from '../constants'
+import Constants from '../constants'
 
 const initialState = {
 
@@ -9,13 +6,13 @@ const initialState = {
 
 export function locationReducer(state = initialState, { payload, type }) {
   switch (type) {
-    case LOCATION_FETCHED:
+    case Constants.LOCATION_FETCHED:
       const { coords } = payload
       return {
         ...state,
         coords
       }
-    case LOCATION_NOT_FETCHED:
+    case Constants.LOCATION_NOT_FETCHED:
       return initialState
     default:
       return {

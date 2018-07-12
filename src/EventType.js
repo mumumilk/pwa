@@ -1,5 +1,0 @@
-class EventType {
-  static REGISTER_SPOT_LOCATION_WAS_CONFIRMED = 'REGISTER_SPOT_LOCATION_WAS_CONFIRMED'
-}
-
-export default EventType

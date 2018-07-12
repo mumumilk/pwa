@@ -1,9 +1,4 @@
-import {
-  INIT_AUTH,
-  SIGN_IN_ERROR,
-  SIGN_IN_SUCCESS,
-  SIGN_OUT_SUCCESS
-} from '../constants'
+import Constants from '../constants'
 
 export function signInWithFacebook(firebase) {
   return dispatch => {
@@ -16,14 +11,14 @@ export function signInWithFacebook(firebase) {
 
 export function initAuth(user) {
   return {
-    type: INIT_AUTH,
+    type: Constants.INIT_AUTH,
     payload: user
   }
 }
 
 export function signInError(error) {
   return {
-    type: SIGN_IN_ERROR,
+    type: Constants.SIGN_IN_ERROR,
     payload: error
   }
 }
@@ -31,7 +26,7 @@ export function signInError(error) {
 export function signInSuccess(result) {
   console.log(result)
   return {
-    type: SIGN_IN_SUCCESS,
+    type: Constants.SIGN_IN_SUCCESS,
     payload: result.user
   }
 }
@@ -45,6 +40,6 @@ export function signOut(firebase) {
 
 export function signOutSuccess() {
   return {
-    type: SIGN_OUT_SUCCESS
+    type: Constants.SIGN_OUT_SUCCESS
   }
 }

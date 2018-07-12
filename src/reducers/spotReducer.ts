@@ -1,4 +1,4 @@
-import { SPOT_LOCATION_WAS_RECORDED } from '../constants'
+import Constants from '../constants'
 
 const initialState = {
 
@@ -6,8 +6,8 @@ const initialState = {
 
 export function spotReducer(state = initialState, { payload, type }) {
   switch (type) {
-    case SPOT_LOCATION_WAS_RECORDED:
-      const { latitude, longitude, zoom} = payload
+    case Constants.CENTER_WAS_RECORDED:
+      const { latitude, longitude, zoom } = payload
       return {
         ...state,
         latitude,

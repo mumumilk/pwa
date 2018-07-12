@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { Marker } from 'react-google-maps'
 
 class SpotMarker extends Component {
-
   constructor() {
     super()
 
@@ -20,12 +19,9 @@ class SpotMarker extends Component {
       <div className="spot-marker">
         <Marker
           className="spot-marker__marker"
-          key={this.props.name}
           position={{ lat: this.props.latitude, lng: this.props.longitude }} />
 
-        <div className="spot-marker__dialog">
-
-        </div>
+        <div className="spot-marker__dialog"></div>
       </div>
     )
   }

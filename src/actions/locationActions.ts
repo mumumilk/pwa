@@ -1,7 +1,4 @@
-import {
-  LOCATION_FETCHED,
-  LOCATION_NOT_FETCHED
-} from '../constants'
+import Constants from '../constants'
 
 export function fetchLocation() {
   const geolocation = navigator.geolocation
@@ -27,14 +24,14 @@ export function fetchLocation() {
 
 const locationFetched = result => {
   return {
-    type: LOCATION_FETCHED,
+    type: Constants.LOCATION_FETCHED,
     payload: result
   }
 }
 
 const locationNotFetched = result => {
   return {
-    type: LOCATION_NOT_FETCHED,
+    type: Constants.LOCATION_NOT_FETCHED,
     payload: result
   }
 }

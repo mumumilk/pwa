@@ -1,10 +1,7 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { compose } from 'redux'
 import { Link } from 'react-router-dom'
-
-import { withFirebase } from 'react-redux-firebase'
 
 const Menu = props => {
   const { api } = props
@@ -44,4 +41,4 @@ const Menu = props => {
 
 const mapStateToProps = state => state
 
-export default compose(withFirebase, connect(mapStateToProps, null))(Menu)
+export default connect(mapStateToProps, null)(Menu)
