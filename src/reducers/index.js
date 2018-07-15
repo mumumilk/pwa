@@ -1,11 +1,11 @@
-import { combineReducers } from 'redux'
+import { combineReducers, Reducer } from 'redux'
 
 import { firebaseReducer } from 'react-redux-firebase'
 import { authReducer } from './authReducer'
 import { locationReducer } from './locationReducer'
 import { spotReducer } from './spotReducer'
 
-const reducers = combineReducers({
+const reducers: Reducer<any> = combineReducers({
   auth: authReducer,
   location: locationReducer,
   api: firebaseReducer,

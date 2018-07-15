@@ -3,22 +3,22 @@ class FilledForm {
   /**
    * @type string
    */
-  private readonly name: string
+  name
 
   /**
    * @type boolean
    */
-  private readonly street: boolean
+  street
 
   /**
    * @type boolean
    */
-  private readonly longboard: boolean
+  longboard
 
   /**
    * @type boolean
    */
-  private readonly free: boolean
+  free
 
   /**
    * @param {string} name
@@ -26,12 +26,7 @@ class FilledForm {
    * @param {boolean} longboard
    * @param {boolean} free
    */
-  public constructor(
-    name: string,
-    street: boolean,
-    longboard: boolean,
-    free: boolean
-  ) {
+  constructor(name, street, longboard, free) {
     this.name = name
     this.street = street
     this.longboard = longboard
@@ -39,30 +34,41 @@ class FilledForm {
   }
 
   /**
+   * @param {string} name
+   * @param {boolean} street
+   * @param {boolean} longboard
+   * @param {boolean} free
+   * @returns {FilledForm}
+   */
+  static build (name, street, longboard, free) {
+    return new FilledForm(name, street, longboard, free)
+  }
+
+  /**
    * @returns {string}
    */
-  public getName(): string {
+  getName() {
     return this.name
   }
 
   /**
    * @returns {boolean}
    */
-  public hasStreet(): boolean {
+  hasStreet() {
     return this.street
   }
 
   /**
    * @returns {boolean}
    */
-  public hasFree(): boolean {
+  hasFree() {
     return this.free
   }
 
   /**
    * @returns {boolean}
    */
-  public hasLongboard(): boolean {
+  hasLongboard() {
     return this.longboard
   }
 }

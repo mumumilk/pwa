@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { compose, withProps } from 'recompose'
 import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps'
@@ -10,35 +10,25 @@ import { recordCenter } from '../actions/spotActions'
 
 import Loader from '../components/Loader'
 
-interface Location {
- coords: Coordinates
-}
-
-interface LocatableContainer {
-  recordCenter: Function,
-  fetchLocation: Function,
-  location: Location
-}
-
-class LocationContainer extends React.Component<LocatableContainer> {
+class LocationContainer extends Component {
 
   /**
    * @type GoogleMap
    */
-  private map: GoogleMap
+  map
 
-  constructor(props: any) {
+  constructor(props) {
     super(props)
 
     this.getRef = this.getRef.bind(this)
     this.recordCenter = this.recordCenter.bind(this)
   }
 
-  private getRef(ref: GoogleMap) {
+  getRef(ref) {
     this.map = ref
   }
 
-  private recordCenter() {
+  recordCenter() {
     const { lat, lng } = this.map.getCenter()
     const zoom = this.map.getZoom()
 
@@ -46,11 +36,11 @@ class LocationContainer extends React.Component<LocatableContainer> {
     this.props.recordCenter(center)
   }
 
-  public componentDidMount() {
+  componentDidMount() {
     this.props.fetchLocation()
   }
 
-  public render() {
+  render() {
     return Object.keys(this.props.location).length !== 0
       ? <GoogleMap
           ref={this.getRef}
@@ -64,12 +54,12 @@ class LocationContainer extends React.Component<LocatableContainer> {
   }
 }
 
-const mapActionsToProps = (dispatch: any) => ({
+const mapActionsToProps = dispatch => ({
   fetchLocation: () => dispatch(fetchLocation()),
-  recordCenter: (center: RecordableCenter) => dispatch(recordCenter(center))
+  recordCenter: center => dispatch(recordCenter(center))
 })
 
-const mapStateToProps = (state: any) => state
+const mapStateToProps = state => state
 
 const MapProps = {
   googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCFD7Qay7_Wzw9JH3NqBMnlPBgRpmi2YDo&v=3.exp',

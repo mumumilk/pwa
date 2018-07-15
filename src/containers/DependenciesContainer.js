@@ -1,8 +1,8 @@
-import * as React from 'react'
+import React from 'react'
 
 import { withFirebase } from 'react-redux-firebase'
 
-const DependenciesContainer = (Component: any) => {
+const DependenciesContainer = Component => {
   class Dependencies extends React.Component {
     render() {
       return (

@@ -1,18 +1,17 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 
 import thunk from 'redux-thunk'
-import promise from 'redux-promise-middleware'
-import { logger } from 'redux-logger'
+import logger from 'redux-logger'
 
 import { persistStore, persistReducer } from 'redux-persist'
 
-import * as localForage from 'localforage'
+import localforage from 'localforage'
 
 import { firebaseApp } from './firebase'
 import { reactReduxFirebase } from 'react-redux-firebase'
 
 import reducers from './reducers/index'
-const middlewares = applyMiddleware(promise(), logger, thunk)
+const middlewares = applyMiddleware(logger, thunk)
 
 const firebaseConfig = {
   userProfile: 'users'
@@ -20,7 +19,7 @@ const firebaseConfig = {
 
 const persistConfig = {
   key: 'root',
-  storage: localForage
+  storage: localforage
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)

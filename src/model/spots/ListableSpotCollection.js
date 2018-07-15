@@ -1,21 +1,23 @@
+import ListableSpot from './ListableSpot'
+
 class ListableSpotCollection {
 
   /**
    * @type {any[]}
    */
-  private list: Array<any> = []
+  list = []
 
   /**
-   * @param spot
+   * @param {ListableSpot} spot
    */
-  add(spot: any) {
+  add(spot) {
     this.list.push(spot)
   }
 
   /**
    * @returns {Array<any>}
    */
-  public getList() {
+  getList() {
     return this.list
   }
 }

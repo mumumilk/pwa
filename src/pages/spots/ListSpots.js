@@ -6,7 +6,7 @@ import Loader from '../../components/Loader'
 
 import ListableSpot from '../../model/spots/ListableSpot'
 import FilledForm from '../../model/spots/FilledForm'
-import RecordableSpot from '../../model/spots/RecordableCenter'
+import RecordableCenter from '../../model/spots/RecordableCenter'
 import ListableSpotCollection from '../../model/spots/ListableSpotCollection'
 
 import SpotMarker from './SpotMarker'
@@ -18,7 +18,7 @@ class ListSpots extends Component {
   constructor(props) {
     super(props)
 
-    this.collection = []
+    this.collection = new ListableSpotCollection()
 
     this.getSpots()
   }
@@ -34,33 +34,39 @@ class ListSpots extends Component {
         const { location, data } = spot
         const { modalities } = data
 
-        //}data.name, modalities.street, modalities.longboard, data.hasFree),
+        const filledForm = FilledForm.build(
+          data.name,
+          modalities.street,
+          modalities.longboard,
+          data.hasFree
+        )
 
-        this.collection.push({
-          data: {
-            name: data.name
-          },
-          location: {
-            longitude: location.longitude,
-            latitude: location.latitude,
-            zoom: location.zoom
-          }
-        })
+        const recordableCenter = RecordableCenter.build(
+          location.latitude,
+          location.longitude,
+          location.zoom
+        )
+
+        const listableSpot = ListableSpot.build(filledForm, recordableCenter)
+
+        this.collection.add(listableSpot)
       })
     })
   }
 
   render() {
-    if (!this.collection.length) return <Loader text="Encontrando picos" />
+    if (!this.collection.getList().length) return <Loader text="Encontrando picos" />
 
     return (
       <LocationContainer isMarkerShown>
-        {this.collection.map(spot => (
-          <SpotMarker
-            key={spot.data.name}
-            latitude={spot.location.latitude}
-            longitude={spot.location.longitude} />
-        ))}
+        {this.collection.getList().map(spot => {
+          return (
+            <SpotMarker
+              key={spot.getData().getName()}
+              latitude={spot.getLocation().getLatitude()}
+              longitude={spot.getLocation().getLongitude()} />
+          )
+        })}
       </ LocationContainer>
     )
   }

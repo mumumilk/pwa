@@ -1,4 +1,4 @@
-import Constants from '../constants'
+import { CENTER_WAS_RECORDED } from '../constants'
 
 import RecordableCenter from '../model/spots/RecordableCenter'
 
@@ -6,10 +6,10 @@ import RecordableCenter from '../model/spots/RecordableCenter'
  * @param {RecordableCenter} center
  * @returns {Function}
  */
-export function recordCenter(center: RecordableCenter) {
+export const recordCenter = center => {
   return dispatch => {
     dispatch({
-      type: Constants.CENTER_WAS_RECORDED,
+      type: CENTER_WAS_RECORDED,
       payload: {
         latitude: center.getLatitude(),
         longitude: center.getLongitude(),

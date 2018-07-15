@@ -1,7 +1,7 @@
-import * as React from 'react'
+import React, { Component } from 'react'
 
-class AnalyzeSpot extends React.Component {
-  constructor(props: any) {
+class AnalyzeSpot extends Component {
+  constructor(props) {
     super(props)
   }
 

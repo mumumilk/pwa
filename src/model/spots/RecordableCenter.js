@@ -3,51 +3,56 @@ class RecordableCenter {
   /**
    * @type number
    */
-  private readonly latitude: number
+  latitude
 
   /**
    * @type number
    */
-  private readonly longitude: number
+  longitude
 
   /**
    * @type number
    */
-  private readonly zoom: number
+  zoom
 
   /**
    * @param {number} latitude
    * @param {number} longitude
    * @param {number} zoom
    */
-  constructor(
-    latitude: number,
-    longitude: number,
-    zoom: number
-  ) {
+  constructor(latitude, longitude, zoom) {
     this.longitude = longitude
     this.latitude = latitude
     this.zoom = zoom
   }
 
   /**
+   * @param {number} latitude
+   * @param {number} longitude
+   * @param {number} zoom
+   */
+  static build(latitude, longitude, zoom) {
+    return new RecordableCenter(latitude, longitude, zoom)
+  }
+
+  /**
    * @returns {number}
    */
-  getLatitude(): number {
+  getLatitude() {
     return this.latitude
   }
 
   /**
    * @returns {number}
    */
-  getLongitude(): number {
+  getLongitude() {
     return this.longitude
   }
 
   /**
    * @returns {number}
    */
-  getZoom(): number {
+  getZoom() {
     return this.zoom
   }
 }

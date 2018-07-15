@@ -3,15 +3,15 @@ import * as React from 'react'
 import Menu from '../pages/Menu'
 
 class Main extends React.Component {
-  constructor(props: any) {
+  constructor(props) {
     super(props)
 
     this.toggleMenu = this.toggleMenu.bind(this)
   }
 
   toggleMenu() {
-    let menu: HTMLDivElement = document.querySelector('.menu')
-    let content: HTMLDivElement = document.querySelector('.content')
+    let menu = document.querySelector('.menu')
+    let content = document.querySelector('.content')
 
     const MENU_HIDDEN_MODIFIER = 'menu--hidden'
     const CONTENT_MODIFIER = 'content--fullable'

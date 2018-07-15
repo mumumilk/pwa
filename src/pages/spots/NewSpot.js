@@ -10,11 +10,11 @@ import Checkbox from '../../components/Checkbox/Checkbox'
 import LocationContainer from '../../containers/LocationContainer'
 
 class NewSpot extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
-    this.registerSpotLocationConfirmed = this.registerSpotLocationConfirmed.bind(this)
     this.formSpotWasSubmit = this.formSpotWasSubmit.bind(this)
+    this.registerSpotLocationConfirmed = this.registerSpotLocationConfirmed.bind(this)
   }
 
   registerSpotLocationConfirmed() {
@@ -24,6 +24,7 @@ class NewSpot extends Component {
 
   formSpotWasSubmit(event) {
     event.preventDefault()
+
     const { name, street, longboard, free } = event.target
 
     const data = {
@@ -51,7 +52,7 @@ class NewSpot extends Component {
                 id="name"
                 label="Nome do pico" />
 
-              <h3 className="new-spot__label">Esse pico é sugerido para qual modalidade?, Selecione as categorias.</h3>
+              <h3 className="new-spot__label">Esse pico é sugerido para qual modalidade? Selecione as categorias.</h3>
 
               <Checkbox
                 medium

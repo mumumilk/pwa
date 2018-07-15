@@ -1,9 +1,9 @@
-import * as React from 'react'
+import React from 'react'
 
 import { connect } from 'react-redux'
 
-const AuthenticationContainer = (Component: any) => {
-  class Authentication extends React.Component<any> {
+const AuthenticationContainer = Component => {
+  class Authentication extends React.Component {
     componentWillMount() {
       const { auth, history } = this.props
 
@@ -17,7 +17,7 @@ const AuthenticationContainer = (Component: any) => {
     }
   }
 
-  const mapStateToProps = (state: any) => state
+  const mapStateToProps = state => state
 
   return connect(mapStateToProps)(Authentication)
 }

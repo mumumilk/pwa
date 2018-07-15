@@ -1,4 +1,7 @@
-import Constants from '../constants'
+import {
+  LOCATION_FETCHED,
+  LOCATION_NOT_FETCHED
+} from '../constants'
 
 export function fetchLocation() {
   const geolocation = navigator.geolocation
@@ -8,9 +11,7 @@ export function fetchLocation() {
       reject(new Error('Not Supported'))
     }
 
-    geolocation.getCurrentPosition(position => {
-      resolve(position)
-    }, () => {
+    geolocation.getCurrentPosition(position => resolve(position), () => {
       reject (new Error('Permission denied'))
     })
   })
@@ -24,14 +25,14 @@ export function fetchLocation() {
 
 const locationFetched = result => {
   return {
-    type: Constants.LOCATION_FETCHED,
+    type: LOCATION_FETCHED,
     payload: result
   }
 }
 
 const locationNotFetched = result => {
   return {
-    type: Constants.LOCATION_NOT_FETCHED,
+    type: LOCATION_NOT_FETCHED,
     payload: result
   }
 }

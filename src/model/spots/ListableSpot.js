@@ -6,33 +6,42 @@ class ListableSpot {
   /**
    * @type {RecordableCenter}
    */
-  private readonly location: RecordableCenter
+  location
 
   /**
    * @type {FilledForm}
    */
-  private readonly data: FilledForm
+  data
 
   /**
    * @param {FilledForm} data
    * @param {RecordableCenter} location
    */
-  constructor (data: FilledForm, location: RecordableCenter) {
+  constructor (data, location) {
     this.data = data
     this.location = location
+  }
+
+
+  /**
+   * @param {FilledForm} data
+   * @param {RecordableCenter} location
+   */
+  static build(data, location) {
+    return new ListableSpot(data, location)
   }
 
   /**
    * @returns {RecordableCenter}
    */
-  getLocation(): RecordableCenter {
+  getLocation() {
     return this.location
   }
 
   /**
    * @returns {FilledForm}
    */
-  getData(): FilledForm {
+  getData() {
     return this.data
   }
 }
