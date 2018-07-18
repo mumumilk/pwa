@@ -21,16 +21,23 @@ class FilledForm {
   free
 
   /**
+   * @type {Array}
+   */
+  images
+
+  /**
    * @param {string} name
    * @param {boolean} street
    * @param {boolean} longboard
    * @param {boolean} free
+   * @param {Array} images
    */
-  constructor(name, street, longboard, free) {
+  constructor(name, street, longboard, free, images) {
     this.name = name
     this.street = street
     this.longboard = longboard
     this.free = free
+    this.images = images
   }
 
   /**
@@ -38,10 +45,11 @@ class FilledForm {
    * @param {boolean} street
    * @param {boolean} longboard
    * @param {boolean} free
+   * @param {Array} images
    * @returns {FilledForm}
    */
-  static build (name, street, longboard, free) {
-    return new FilledForm(name, street, longboard, free)
+  static build (name, street, longboard, free, images = []) {
+    return new FilledForm(name, street, longboard, free, images)
   }
 
   /**
@@ -70,6 +78,13 @@ class FilledForm {
    */
   hasLongboard() {
     return this.longboard
+  }
+
+  /**
+   * @returns {Array}
+   */
+  getImages() {
+    return this.images
   }
 }
 

@@ -30,6 +30,9 @@ class ListSpots extends Component {
   getSpots() {
     this.reference = this.props.firebase.database().ref('spots')
     this.reference.on('value', spots => {
+
+      if (!spots.val()) return
+
       Object.values(spots.val()).map(spot => {
         const { location, data } = spot
         const { modalities } = data
@@ -38,7 +41,8 @@ class ListSpots extends Component {
           data.name,
           modalities.street,
           modalities.longboard,
-          data.hasFree
+          data.hasFree,
+          data.images
         )
 
         const recordableCenter = RecordableCenter.build(
@@ -62,7 +66,13 @@ class ListSpots extends Component {
         {this.collection.getList().map(spot => {
           return (
             <SpotMarker
-              key={spot.getData().getName()}
+              showInfoBox={false}
+              key={Math.random()}
+              name={spot.getData().getName()}
+              isFree={spot.getData().hasFree()}
+              hasStreet={spot.getData().hasStreet()}
+              hasLongboard={spot.getData().hasLongboard()}
+              images={spot.getData().getImages()}
               latitude={spot.getLocation().getLatitude()}
               longitude={spot.getLocation().getLongitude()} />
           )

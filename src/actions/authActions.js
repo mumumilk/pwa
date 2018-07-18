@@ -29,7 +29,6 @@ export function signInError(error) {
 }
 
 export function signInSuccess(result) {
-  console.log(result)
   return {
     type: SIGN_IN_SUCCESS,
     payload: result.user

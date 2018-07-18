@@ -39,7 +39,7 @@ class Main extends React.Component {
 
         <div className="content">
             <div className="bar">
-            <i className="icon fa fa-bars" onClick={this.toggleMenu}></i>
+            <i className="icon icon--menu" onClick={this.toggleMenu}></i>
           </div>
 
           {this.props.children}

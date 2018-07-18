@@ -16,22 +16,22 @@ const Menu = props => {
 
       <div className="body">
         <Link className="link" to="/spots/list">
-          <span className="link-icon fa fa-map"></span>
+          <span className="link-icon icon--skateboarder"></span>
           Todos os picos
         </Link>
 
         <Link className="link" to="/spots/new">
-          <span className="link-icon fa fa-plus"></span>
+          <span className="link-icon icon--plus"></span>
           Adicionar novo pico
         </Link>
 
         <Link className="link" to="">
-          <span className="link-icon fa fa-trophy"></span>
+          <span className="link-icon icon--trophy"></span>
           Campeonatos
         </Link>
 
         <Link className="link" to="">
-          <span className="link-icon fa fa-shopping-bag"></span>
+          <span className="link-icon icon--shopping"></span>
           Skateshops
         </Link>
       </div>

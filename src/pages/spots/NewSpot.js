@@ -8,6 +8,7 @@ import Radio from '../../components/Radio/Radio'
 import Checkbox from '../../components/Checkbox/Checkbox'
 
 import LocationContainer from '../../containers/LocationContainer'
+import Upload from "../../components/Upload/Upload";
 
 class NewSpot extends Component {
   constructor(props) {
@@ -22,14 +23,15 @@ class NewSpot extends Component {
     content.classList.add('new-spot__content--visible')
   }
 
-  formSpotWasSubmit(event) {
+  async formSpotWasSubmit(event) {
     event.preventDefault()
 
-    const { name, street, longboard, free } = event.target
+    const { name, street, longboard, free, upload } = event.target
 
     const data = {
       name: name.value,
       hasFree: !!free.checked,
+      images: await this.retrieveProcessedImages(upload) || null,
       modalities: {
         street: street.checked,
         longboard: longboard.checked,
@@ -37,6 +39,23 @@ class NewSpot extends Component {
     }
 
     this.props.recordSpot(data)
+  }
+
+  /**
+   * @param upload
+   * @returns {Promise<any[]>}
+   */
+  async retrieveProcessedImages(upload) {
+    const fileToDataURL = file => {
+      const reader = new FileReader()
+      return new Promise(resolve => {
+        reader.onload = event => resolve(event.target.result)
+        reader.readAsDataURL(file)
+      })
+    }
+
+    const filesArray = Array.prototype.slice.call(upload.files)
+    return Promise.all(filesArray.map(fileToDataURL))
   }
 
   render() {
@@ -77,6 +96,11 @@ class NewSpot extends Component {
                 id="free"
                 label="O acesso é gratuito" />
 
+              <Upload
+                name="image"
+                id="upload"
+                label="Envie imagens do pico!" />
+
               <Button
                 full
                 black
@@ -86,7 +110,7 @@ class NewSpot extends Component {
           </div>
         </div>
 
-        <i className="fa fa-map-marker new-spot__marker"></i>
+        <i className="icon--marker new-spot__marker"></i>
 
         <Button
           full

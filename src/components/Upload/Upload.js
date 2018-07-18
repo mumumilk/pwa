@@ -1,9 +1,9 @@
 import React from 'react'
 import classnames from 'classnames'
 
-const MODIFIER = 'radio-group'
+const MODIFIER = 'upload-group'
 
-const Radio = ({
+const Upload = ({
   black,
   white,
   full,
@@ -15,7 +15,6 @@ const Radio = ({
   value,
   label,
   id,
-  name,
   ...props
 }) => {
   const classes = classnames({
@@ -26,22 +25,22 @@ const Radio = ({
   })
 
   return (
-    <div className={`radio-group ${classes}`}>
+    <div className={`upload-group ${classes}`}>
       <input
         id={id}
-        name={name}
-        className="radio-group__radio"
-        type="radio"
+        name={id}
+        className="upload-group__input"
+        multiple
+        type="file"
+        accept="image/png, image/jpeg"
+        onClick={onClick}
         onChange={onChange}
+        value={value}
         {...props} />
 
-      <label className="radio-group__label" htmlFor={id}>
-        {label}
-
-        <i className="radio-group__label__icon fa fa-check"></i>
-      </label>
+      <label className="upload-group__label" htmlFor={id}>{label}</label>
     </div>
   )
 }
 
-export default Radio
+export default Upload
