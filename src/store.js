@@ -14,7 +14,11 @@ import reducers from './reducers/index'
 const middlewares = applyMiddleware(logger, thunk)
 
 const firebaseConfig = {
-  userProfile: 'users'
+  userProfile: 'users',
+  updateProfileOnLogin: false,
+  profileParamsToPopulate: [
+    ['role:roles']
+  ]
 }
 
 const persistConfig = {

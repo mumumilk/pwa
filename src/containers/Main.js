@@ -6,6 +6,8 @@ class Main extends React.Component {
   constructor(props) {
     super(props)
 
+    console.log(props)
+
     this.toggleMenu = this.toggleMenu.bind(this)
   }
 

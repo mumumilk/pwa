@@ -38,7 +38,7 @@ class NewSpot extends Component {
       }
     }
 
-    this.props.recordSpot(data)
+    this.props.recordPossibleSpot(data)
   }
 
   /**
@@ -128,8 +128,9 @@ class NewSpot extends Component {
 }
 
 const mapHandlers = ({
-  recordSpot: props => data => {
-    return props.firebase.push('spots', {
+  recordPossibleSpot: props => data => {
+    return props.firebase.push('analyze', {
+      type: 'spots',
       location: props.spot,
       uid: props.auth.id,
       data

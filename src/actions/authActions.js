@@ -31,13 +31,13 @@ export function signInError(error) {
 export function signInSuccess(result) {
   return {
     type: SIGN_IN_SUCCESS,
-    payload: result.user
+    payload: result
   }
 }
 
 export function signOut(firebase) {
   return dispatch => {
-    firebase.signOut()
+    firebase.logout()
       .then(() => dispatch(signOutSuccess()))
   }
 }

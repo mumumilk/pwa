@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   authenticated: false,
+  isAdmin: false,
   id: null
 }
 
@@ -13,10 +14,12 @@ export function authReducer(state = initialState, { type, payload }) {
   switch (type) {
     case INIT_AUTH:
     case SIGN_IN_SUCCESS:
+      console.log(payload)
       return {
         ...state,
-        authenticated: !!payload,
-        id: payload.uid
+        isAdmin: (payload.profile.role === 'admin'),
+        authenticated: !!payload.user,
+        id: payload.user.uid
       }
 
     case SIGN_OUT_SUCCESS:

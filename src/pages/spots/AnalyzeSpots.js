@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class AnalyzeSpot extends Component {
+class AnalyzeSpots extends Component {
   constructor(props) {
     super(props)
   }
@@ -13,4 +13,4 @@ class AnalyzeSpot extends Component {
   }
 }
 
-export default AnalyzeSpot
+export default AnalyzeSpots

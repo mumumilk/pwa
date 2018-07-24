@@ -12,10 +12,9 @@ class SpotMarker extends Component {
   }
 
   openDialogInformation() {
-    this.setState({
-      ...this.props,
-      showInfoBox: true
-    })
+    const element = document.querySelector('.spot-marker__modal')
+
+    element.classList.toggle('spot-marker__modal--hidden')
   }
 
   render() {
@@ -32,7 +31,7 @@ class SpotMarker extends Component {
 
     return (
       <div className="spot-marker">
-        {!showInfoBox && <div className="spot-marker__modal">
+        {!showInfoBox && <div className="spot-marker__modal spot-marker__modal--hidden">
           {name}
           {images.map(image => <img key={Math.random()} src={image} />)}
         </div>}
