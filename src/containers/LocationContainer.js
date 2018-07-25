@@ -9,6 +9,8 @@ import { fetchLocation } from '../actions/locationActions'
 import { recordCenter } from '../actions/spotActions'
 
 import Loader from '../components/Loader'
+import Container from "../Container";
+import EventType from "../EventType";
 
 class LocationContainer extends Component {
 
@@ -22,6 +24,8 @@ class LocationContainer extends Component {
 
     this.getRef = this.getRef.bind(this)
     this.recordCenter = this.recordCenter.bind(this)
+
+    Container.get('event').add(EventType.CENTER_WAS_RECORDED, this.recordCenter)
   }
 
   getRef(ref) {
@@ -44,7 +48,6 @@ class LocationContainer extends Component {
     return Object.keys(this.props.location).length !== 0
       ? <GoogleMap
           ref={this.getRef}
-          onCenterChanged={this.recordCenter}
           defaultZoom={17}
           defaultCenter={{ lat: this.props.location.coords.latitude, lng: this.props.location.coords.longitude }}>
 

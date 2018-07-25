@@ -37,7 +37,7 @@ const Checkbox = ({
       <label className="checkbox-group__label" htmlFor={id}>
         {label}
 
-        <i className="checkbox-group__label__icon fa fa-check"></i>
+        <i className="checkbox-group__label__icon icon--check"></i>
       </label>
     </div>
   )

@@ -13,6 +13,11 @@ import AuthenticationContainer from './containers/AuthenticationContainer'
 import DependenciesContainer from './containers/DependenciesContainer'
 import RoleContainer from './containers/RoleContainer'
 
+import Container from './Container'
+import Event from './Event'
+
+Container.add('event', Event.getInstance())
+
 const App = () => (
   <BrowserRouter>
     <Switch>

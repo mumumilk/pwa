@@ -11,9 +11,8 @@ export function fetchLocation() {
       reject(new Error('Not Supported'))
     }
 
-    geolocation.getCurrentPosition(position => resolve(position), error => {
-      console.log(error)
-      reject (new Error(`Permission denied`))
+    geolocation.getCurrentPosition(position => resolve(position), () => {
+      reject(new Error(`Permission denied`))
     })
   })
 

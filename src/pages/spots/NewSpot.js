@@ -6,9 +6,12 @@ import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
 import Radio from '../../components/Radio/Radio'
 import Checkbox from '../../components/Checkbox/Checkbox'
+import Upload from '../../components/Upload/Upload'
+
+import Container from '../../Container'
+import EventType from '../../EventType'
 
 import LocationContainer from '../../containers/LocationContainer'
-import Upload from "../../components/Upload/Upload";
 
 class NewSpot extends Component {
   constructor(props) {
@@ -16,9 +19,12 @@ class NewSpot extends Component {
 
     this.formSpotWasSubmit = this.formSpotWasSubmit.bind(this)
     this.registerSpotLocationConfirmed = this.registerSpotLocationConfirmed.bind(this)
+
   }
 
   registerSpotLocationConfirmed() {
+    Container.get('event').dispatch(EventType.CENTER_WAS_RECORDED)
+
     let content = document.querySelector('.new-spot__content')
     content.classList.add('new-spot__content--visible')
   }

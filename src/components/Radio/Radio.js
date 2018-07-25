@@ -38,7 +38,7 @@ const Radio = ({
       <label className="radio-group__label" htmlFor={id}>
         {label}
 
-        <i className="radio-group__label__icon fa fa-check"></i>
+        <i className="radio-group__label__icon icon--check"></i>
       </label>
     </div>
   )

@@ -6,8 +6,6 @@ class Main extends React.Component {
   constructor(props) {
     super(props)
 
-    console.log(props)
-
     this.toggleMenu = this.toggleMenu.bind(this)
   }
 
@@ -39,7 +37,7 @@ class Main extends React.Component {
       <div className="main">
         <Menu />
 
-        <div className="content">
+        <div className="content content--fullable">
             <div className="bar">
             <i className="icon icon--menu" onClick={this.toggleMenu}></i>
           </div>

@@ -49,16 +49,20 @@ class Landing extends Component {
             <p className="spots__description">De maneira colaborativa, skatistas compartilharem picos (locais para se praticar o esporte) para que haja troca de conhecimento entre estes, com características do local, sendo pago ou público, street e outras modalidades.</p>
           </div>
         </div>
+
+        <div className="socials">
+          <h2 className="socials__title">Siga nossas redes</h2>
+
+          <a className="socials__icon icon--facebook" rel="noopener" target="_blank" href="https://facebook.com/ondetempico"></a>
+          <a className="socials__icon icon--instagram" rel="noopener" target="_blank" href="https://instagram.com/ondetempico"></a>
+        </div>
       </div>
     )
   }
 }
 
 const mapActionsToProps = (dispatch, state) => ({
-  signIn: () => {
-    const { firebase } = state
-    dispatch(signInWithFacebook(firebase))
-  }
+  signIn: () => dispatch(signInWithFacebook(state.firebase))
 })
 
 const mapStateToProps = state => state

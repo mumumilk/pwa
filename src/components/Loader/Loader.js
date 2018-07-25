@@ -6,8 +6,8 @@ const Loader = ({
 }) => {
   return (
     <div className="loader" {...props}>
-      <i className="loader__icon"></i>
-      <div className="loader__description">{text}</div>
+      <i className="loader__icon icon--loading"></i>
+      <p className="loader__description">{text}</p>
     </div>
   )
 }

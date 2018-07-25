@@ -31,11 +31,18 @@
       font-size rem(54px)
       letter-spacing rem(1px)
 
+      +below('m')
+        font-size rem(40px)
+
   .spots
     @extends .container
     width 100%
     height 100vh
     display flex
+
+    +below('m')
+      flex-direction column-reverse
+      justify-content flex-end
 
     &__image,
     &__explanation
@@ -44,20 +51,56 @@
       margin-bottom 50px
       width 100%
 
+      +below('m')
+        max-width 100%
+        margin-bottom 0
+
     &__image
       background-image url("../images/4.jpg")
       background-size cover
       background-position center
       margin-right 50px
 
+      +below('m')
+        margin-right 0
+        height 100%
+
     &__explanation
       margin-left 50px
 
+      +below('m')
+        margin-left 0
+
     &__title
       font-size rem(35px)
-      color $shaft
+      color $black
       margin-bottom 10px
 
+      +below('m')
+        font-size rem(28px)
+
     &__description
-      color $shaft
+      color $black
       margin-bottom 20px
+
+  .socials
+    background $black
+    max-width 1024px
+    width calc(100% - 30px)
+    margin 0 auto
+    margin-top 50px
+    height 20vh
+
+    +below('m')
+      margin 0 15px
+
+    &__title
+      font-size rem(35px)
+      color $white
+      margin-bottom 10px
+
+      +below('m')
+        font-size rem(28px)
+
+    &__icon
+      color $white
