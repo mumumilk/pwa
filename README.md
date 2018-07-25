@@ -16,8 +16,10 @@ npm run start
 ```
 
 ### Realizando deploy
+É necessário instalar o `firebase-tools` e realizar login com o Google.
+
 ```sh
-npm run-script deploy 
+npm run deploy 
 ```
 
 ## Contribuições

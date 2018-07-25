@@ -34,7 +34,7 @@
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "build": "npm-run-all build-js build-css",
-    "deploy": "npm run-script build && firebase deploy --only hosting build"
+    "deploy": "npm run-script build && firebase deploy --only hosting"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.2",
