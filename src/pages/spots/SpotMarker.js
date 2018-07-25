@@ -38,7 +38,7 @@ class SpotMarker extends Component {
 
         <Marker
           className="spot-marker__marker"
-          icon="../statics/images/skateboarder.png"
+          icon="../static/images/skateboarder.png"
           onClick={this.openDialogInformation}
           position={{ lat: latitude, lng: longitude }} />
       </div>

@@ -29,7 +29,7 @@ class Landing extends Component {
       <div className="landing">
         <div className="home">
           <div className="home__header">
-            <img className="home__logo" src="../statics/images/logo.svg" />
+            <img className="home__logo" src="../static/images/logo.svg" />
 
             <div className="home__sign">
               <Button medium white text="Entrar" onClick={this.props.signIn} />
@@ -49,20 +49,16 @@ class Landing extends Component {
             <p className="spots__description">De maneira colaborativa, skatistas compartilharem picos (locais para se praticar o esporte) para que haja troca de conhecimento entre estes, com características do local, sendo pago ou público, street e outras modalidades.</p>
           </div>
         </div>
-
-        <div className="socials">
-          <h2 className="socials__title">Siga nossas redes</h2>
-
-          <a className="socials__icon icon--facebook" rel="noopener" target="_blank" href="https://facebook.com/ondetempico"></a>
-          <a className="socials__icon icon--instagram" rel="noopener" target="_blank" href="https://instagram.com/ondetempico"></a>
-        </div>
       </div>
     )
   }
 }
 
 const mapActionsToProps = (dispatch, state) => ({
-  signIn: () => dispatch(signInWithFacebook(state.firebase))
+  signIn: () => {
+    const { firebase } = state
+    dispatch(signInWithFacebook(firebase))
+  }
 })
 
 const mapStateToProps = state => state

@@ -1,6 +1,6 @@
 node_modules
 package-lock.json
-public/statics/styles
+src/static/styles
 build
 .idea
 pwa.iml

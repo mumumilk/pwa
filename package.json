@@ -29,12 +29,12 @@
     "start": "npm-run-all -p watch-js watch-css",
     "build-js": "react-scripts build",
     "watch-js": "react-scripts start",
-    "build-css": "stylus -c src/styles/main.styl -u ./node_modules/rupture --out public/statics/styles",
-    "watch-css": "npm run build-css && stylus -c -w src/styles/ -u ./node_modules/rupture --out public/statics/styles",
+    "build-css": "stylus -c src/styles/main.styl -u ./node_modules/rupture --out src/static/styles",
+    "watch-css": "npm run build-css && stylus -c -w src/styles/ -u ./node_modules/rupture --out src/static/styles",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "build": "npm-run-all build-js build-css",
-    "deploy": "npm run-script build && firebase deploy --only hosting"
+    "deploy": "npm run-script build && firebase deploy --only hosting build"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.2",
