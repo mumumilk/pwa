@@ -27,6 +27,9 @@ npm run start
 npm run deploy 
 ```
 
+## Dúvidas ou sugestões
+Você pode abrir uma [issue](https://github.com/ondetempico/pwa/issues/new) ou me contatar através do e-mail guiilherme.bayer@gmail.com
+
 ## Contribuições
 Todas as tarefas dessa aplicação estão sendo mapeadas em nosso board, clique [aqui](https://github.com/ondetempico/pwa/projects/1) e confira.
 
