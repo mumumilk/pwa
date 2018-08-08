@@ -10,6 +10,11 @@ Também, informações sobre skateshops e lojas relacionadas, trazendo assim, vi
 
 ## Para desenvolvedores
 
+### Instale as dependências
+```sh
+npm i
+```
+
 ### Rodando aplicação em desenvolvimento
 ```sh
 npm run start
