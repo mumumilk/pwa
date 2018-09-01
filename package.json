@@ -29,7 +29,7 @@
     "start": "npm-run-all -p watch-js watch-css",
     "build-js": "react-scripts build",
     "watch-js": "react-scripts start",
-    "build-css": "./node_modules/stylus/bin/stylus -c src/styles/main.styl -u ./node_modules/rupture --out src/static/styles",
+    "build-css": "mkdir -p src/static/styles && ./node_modules/stylus/bin/stylus -c src/styles/main.styl -u ./node_modules/rupture --out src/static/styles",
     "watch-css": "npm run build-css && ./node_modules/stylus/bin/stylus -c -w src/styles/ -u ./node_modules/rupture --out src/static/styles",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
