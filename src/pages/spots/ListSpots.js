@@ -33,7 +33,7 @@ class ListSpots extends Component {
 
       if (!spots.val()) return
 
-      Object.values(spots.val()).map(spot => {
+      Object.values(spots.val()).forEach(spot => {
         const { location, data } = spot
         const { modalities } = data
 
@@ -63,10 +63,9 @@ class ListSpots extends Component {
 
     return (
       <LocationContainer isMarkerShown>
-        {this.collection.getList().map(spot => {
+        {this.collection.getList().forEach(spot => {
           return (
             <SpotMarker
-              showInfoBox={false}
               key={Math.random()}
               name={spot.getData().getName()}
               isFree={spot.getData().hasFree()}

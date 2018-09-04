@@ -72,8 +72,8 @@ class Menu extends Component {
   }
 }
 
-const mapActionsToProps = (dispatch, state) => ({
-  signOut: () => dispatch(signOut(state.firebase))
+const mapActionsToProps = (dispatch, { firebase }) => ({
+  signOut: () => dispatch(signOut(firebase))
 })
 
 const mapStateToProps = state => state

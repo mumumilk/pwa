@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
-import { Marker, InfoWindow } from 'react-google-maps'
-import { InfoBox } from 'react-google-maps/lib/components/addons/InfoBox'
+import { Marker } from 'react-leaflet'
 
 class SpotMarker extends Component {
+  static state = {
+    isVibisible: false
+  }
+
   constructor() {
     super()
 
@@ -12,9 +14,9 @@ class SpotMarker extends Component {
   }
 
   openDialogInformation() {
-    const element = document.querySelector('.spot-marker__modal')
-
-    element.classList.toggle('spot-marker__modal--hidden')
+    this.setState({
+      isVibisible: true
+    })
   }
 
   render() {
@@ -25,20 +27,19 @@ class SpotMarker extends Component {
       hasStreet,
       hasLongboard,
       latitude,
-      longitude,
-      showInfoBox
+      longitude
     } = this.props
 
     return (
       <div className="spot-marker">
-        {!showInfoBox && <div className="spot-marker__modal spot-marker__modal--hidden">
+        {this.state.isVisible && <div className="spot-marker__modal">
           {name}
           {images.map(image => <img key={Math.random()} src={image} />)}
         </div>}
 
         <Marker
           className="spot-marker__marker"
-          icon="../static/images/skateboarder.png"
+          //icon="../static/images/skateboarder.png"
           onClick={this.openDialogInformation}
           position={{ lat: latitude, lng: longitude }} />
       </div>

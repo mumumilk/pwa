@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Preferences = props => (
+const Preferences = ({}) => (
   <div className="settings">
     <h1></h1>
   </div>

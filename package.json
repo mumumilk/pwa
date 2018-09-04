@@ -5,13 +5,14 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "firebase": "^5.2.0",
+    "leaflet": "^1.3.4",
     "localforage": "^1.7.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-geolocated": "^2.4.0",
     "react-geolocation": "^1.0.3",
-    "react-google-maps": "^9.4.5",
     "react-injector": "^0.2.1",
+    "react-leaflet": "^2.0.1",
     "react-redux": "^5.0.7",
     "react-redux-firebase": "^2.1.6",
     "react-router": "^4.3.1",
@@ -26,17 +27,18 @@
     "wolfy87-eventemitter": "^5.2.5"
   },
   "scripts": {
-    "start": "npm-run-all -p watch-js watch-css",
-    "build-js": "react-scripts build",
-    "watch-js": "react-scripts start",
-    "build-css": "mkdir -p src/static/styles && ./node_modules/stylus/bin/stylus -c src/styles/main.styl -u ./node_modules/rupture --out src/static/styles",
-    "watch-css": "npm run build-css && ./node_modules/stylus/bin/stylus -c -w src/styles/ -u ./node_modules/rupture --out src/static/styles",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject",
-    "build": "npm-run-all build-js build-css",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "start": "npm-run-all -p watch:js watch:css",
+    "build:js": "react-scripts build",
+    "watch:js": "react-scripts start",
+    "build:css": "mkdir -p src/static/styles && ./node_modules/stylus/bin/stylus -c src/styles/main.styl -u ./node_modules/rupture --out src/static/styles",
+    "watch:css": "npm run build:css && ./node_modules/stylus/bin/stylus -c -w src/styles/ -u ./node_modules/rupture --out src/static/styles",
+    "build": "npm-run-all build:js build:css",
     "deploy": "npm run-script build && firebase deploy --only hosting"
   },
   "devDependencies": {
+    "docz": "^0.11.0",
     "npm-run-all": "^4.1.2",
     "rupture": "^0.7.1",
     "stylus": "^0.54.5"
