@@ -6,7 +6,7 @@ import './static/styles/main.css'
 import Landing from './pages/Landing'
 import Settings from './pages/Preferences'
 
-import NewSpot from './pages/spots/NewSpot'
+import NewSpot from './pages/spots/new/NewSpot'
 import AnalyzeSpots from './pages/spots/AnalyzeSpots'
 import ListSpots from './pages/spots/ListSpots'
 

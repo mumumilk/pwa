@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-
+import { withFirebase } from 'react-redux-firebase'
+import { compose } from 'recompose'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { signOut } from '../actions/authActions'
-import { withFirebase } from 'react-redux-firebase'
-import { compose } from 'recompose'
+import { signOut } from '../actions/auth'
 
 class Menu extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Button from '../../components/Button'
-import Upload from '../../components/Upload'
+import Button from '../../../components/Button'
+import Upload from '../../../components/Upload'
 
 const RecordSpotImages = ({ onClick }) => (
   <div className="new-spot__content">

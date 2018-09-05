@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 
 import { withHandlers } from 'recompose'
 
-import Button from '../../components/Button'
+import Button from '../../../components/Button'
 
 import RecordSpotData from './RecordSpotData'
 import RecordSpotImages from './RecordSpotImages'
 
-import Container from '../../Container'
-import EventType from '../../EventType'
+import Container from '../../../Container'
+import EventType from '../../../EventType'
 
-import LocationContainer from '../../containers/LocationContainer'
+import LocationContainer from '../../../containers/LocationContainer'
 
 class NewSpot extends Component {
   state = {

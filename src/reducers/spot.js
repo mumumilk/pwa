@@ -4,7 +4,7 @@ const initialState = {
 
 }
 
-export function spotReducer(state = initialState, { payload, type }) {
+export function spot(state = initialState, { payload, type }) {
   switch (type) {
     case CENTER_WAS_RECORDED:
       const { latitude, longitude, zoom } = payload

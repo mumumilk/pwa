@@ -5,7 +5,7 @@ import {
   SIGN_OUT_SUCCESS
 } from '../constants'
 
-export function signInWithFacebook(firebase) {
+export const signInWithFacebook = firebase => {
   return dispatch => {
     firebase
       .login({ provider: 'facebook', type: 'popup' })
@@ -14,35 +14,35 @@ export function signInWithFacebook(firebase) {
   }
 }
 
-export function initAuth(user) {
+export const initAuth = user => {
   return {
     type: INIT_AUTH,
     payload: user
   }
 }
 
-export function signInError(error) {
+export const signInError = error => {
   return {
     type: SIGN_IN_ERROR,
     payload: error
   }
 }
 
-export function signInSuccess(result) {
+export const signInSuccess = result => {
   return {
     type: SIGN_IN_SUCCESS,
     payload: result
   }
 }
 
-export function signOut(firebase) {
+export const signOut = firebase => {
   return dispatch => {
     firebase.logout()
       .then(() => dispatch(signOutSuccess()))
   }
 }
 
-export function signOutSuccess() {
+export const signOutSuccess = () => {
   return {
     type: SIGN_OUT_SUCCESS
   }

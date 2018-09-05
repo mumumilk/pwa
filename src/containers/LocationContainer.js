@@ -5,8 +5,8 @@ import { Map, TileLayer } from 'react-leaflet'
 
 import RecordableCenter from '../model/spots/RecordableCenter'
 
-import { fetchLocation } from '../actions/locationActions'
-import { recordCenter } from '../actions/spotActions'
+import { fetchLocation } from '../actions/location'
+import { recordCenter } from '../actions/spot'
 
 import Loader from '../components/Loader'
 import Container from '../Container'

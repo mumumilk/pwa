@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 class AnalyzeSpots extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
   }
 
   render() {

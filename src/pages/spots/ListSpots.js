@@ -11,7 +11,7 @@ import ListableSpotCollection from '../../model/spots/ListableSpotCollection'
 
 import SpotMarker from './SpotMarker'
 
-import { fetchLocation } from '../../actions/locationActions'
+import { fetchLocation } from '../../actions/location'
 import LocationContainer from '../../containers/LocationContainer'
 
 class ListSpots extends Component {
@@ -19,19 +19,20 @@ class ListSpots extends Component {
     super(props)
 
     this.collection = new ListableSpotCollection()
-
-    this.getSpots()
   }
 
   componentDidMount() {
     this.props.fetchLocation()
+    this.fetchSpots()
   }
 
-  getSpots() {
+  fetchSpots() {
     this.reference = this.props.firebase.database().ref('spots')
     this.reference.on('value', spots => {
 
-      if (!spots.val()) return
+      if (!spots.val()) {
+        return
+      }
 
       Object.values(spots.val()).forEach(spot => {
         const { location, data } = spot
@@ -59,7 +60,9 @@ class ListSpots extends Component {
   }
 
   render() {
-    if (!this.collection.getList().length) return <Loader text="Encontrando picos" />
+    if (!this.collection.getList().length) {
+      return <Loader text="Encontrando picos" />
+    }
 
     return (
       <LocationContainer isMarkerShown>

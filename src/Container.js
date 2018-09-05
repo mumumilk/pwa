@@ -25,8 +25,6 @@ class Container {
       definition,
       hasCached
     })
-
-    console.log(this.services)
   }
 
   /**

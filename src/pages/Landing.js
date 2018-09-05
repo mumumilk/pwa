@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 
-import { signInWithFacebook } from '../actions/authActions'
+import { signInWithFacebook } from '../actions/auth'
 
 import Button from '../components/Button'
 
@@ -61,8 +61,8 @@ class Landing extends Component {
   }
 }
 
-const mapActionsToProps = (dispatch, state) => ({
-  signIn: () => dispatch(signInWithFacebook(state.firebase))
+const mapActionsToProps = (dispatch, { firebase }) => ({
+  signIn: () => dispatch(signInWithFacebook(firebase))
 })
 
 const mapStateToProps = state => state
