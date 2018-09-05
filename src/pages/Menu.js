@@ -11,6 +11,7 @@ class Menu extends Component {
     super(props)
 
     this.closeMenu = this.closeMenu.bind(this)
+    this.redirectAndSignOut = this.redirectAndSignOut.bind(this)
   }
 
   closeMenu() {
@@ -24,14 +25,21 @@ class Menu extends Component {
     content.classList.add(CONTENT_MODIFIER)
   }
 
+  redirectAndSignOut() {
+
+  }
+
   render() {
-    const { api, auth, signOut } = this.props
+    const {
+      auth,
+      api: { profile }
+    } = this.props
 
     return (
       <div className="menu menu--hidden">
         <div className="menu__header">
-          <img className="menu__photo" src={api.profile.avatarUrl} />
-          <h2 className="menu__name">{api.profile.displayName}</h2>
+          <img className="menu__photo" src={profile.avatarUrl} />
+          <h2 className="menu__name">{profile.displayName}</h2>
           <span className="menu__role">Usuário</span>
         </div>
 
@@ -61,7 +69,7 @@ class Menu extends Component {
             Skateshops
           </Link>
 
-          <span className="menu__link" onClick={signOut}>
+          <span className="menu__link" onClick={this.redirectAndSignOut}>
             <span className="menu__link__icon icon--logout"></span>
             Sair
           </span>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const AuthenticationContainer = Component => {
   class Authentication extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
       const { auth, history } = this.props
 
       if (!auth.authenticated) {

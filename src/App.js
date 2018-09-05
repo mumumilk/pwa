@@ -20,17 +20,19 @@ import Event from './Event'
 
 Container.add('event', Event.getInstance())
 
+const MainWithDependencies = DependenciesContainer(Main)
+
 const App = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path='/' component={DependenciesContainer(Landing)} />
 
-        <Main>
-          <Route path='/settings' component={AuthenticationContainer(Settings)} />
-          <Route path='/spots/list' component={AuthenticationContainer(DependenciesContainer(ListSpots))} />
-          <Route path='/spots/new' component={AuthenticationContainer(DependenciesContainer(NewSpot))} />
-          <Route path='/spots/analyze' component={RoleContainer(AuthenticationContainer(DependenciesContainer(AnalyzeSpots)))} />
-        </Main>
+      <MainWithDependencies>
+        <Route path='/settings' component={AuthenticationContainer(Settings)} />
+        <Route path='/spots/list' component={AuthenticationContainer(DependenciesContainer(ListSpots))} />
+        <Route path='/spots/new' component={AuthenticationContainer(DependenciesContainer(NewSpot))} />
+        <Route path='/spots/analyze' component={RoleContainer(AuthenticationContainer(DependenciesContainer(AnalyzeSpots)))} />
+      </MainWithDependencies>
     </Switch>
   </BrowserRouter>
 )
