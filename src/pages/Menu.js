@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { withFirebase } from 'react-redux-firebase'
-import { compose } from 'recompose'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -26,7 +24,9 @@ class Menu extends Component {
   }
 
   redirectAndSignOut() {
+    const { signOut, history } = this.props
 
+    signOut()
   }
 
   render() {
@@ -45,32 +45,35 @@ class Menu extends Component {
 
         <div className="menu__body">
           <Link className="menu__link" to="/spots/list" onClick={this.closeMenu}>
-            <span className="menu__link__icon icon--skateboarder"></span>
+            <span className="menu__link__icon icon--skateboarder" />
             Todos os picos
           </Link>
 
-          {auth.isAdmin && <Link className="menu__link" to="/spots/analyze" onClick={this.closeMenu}>
-            <span className="menu__link__icon icon--configuration"></span>
-            Analisar pico
-          </Link>}
+          {
+            auth.isAdmin &&
+            <Link className="menu__link" to="/spots/analyze" onClick={this.closeMenu}>
+              <span className="menu__link__icon icon--configuration" />
+              Analisar pico
+            </Link>
+          }
 
           <Link className="menu__link" to="/spots/new" onClick={this.closeMenu}>
-            <span className="menu__link__icon icon--plus"></span>
+            <span className="menu__link__icon icon--plus" />
             Adicionar novo pico
           </Link>
 
           <Link className="menu__link" to="" onClick={this.closeMenu}>
-            <span className="menu__link__icon icon--trophy"></span>
+            <span className="menu__link__icon icon--trophy" />
             Campeonatos
           </Link>
 
           <Link className="menu__link" to="" onClick={this.closeMenu}>
-            <span className="menu__link__icon icon--shopping"></span>
+            <span className="menu__link__icon icon--shopping" />
             Skateshops
           </Link>
 
           <span className="menu__link" onClick={this.redirectAndSignOut}>
-            <span className="menu__link__icon icon--logout"></span>
+            <span className="menu__link__icon icon--logout" />
             Sair
           </span>
         </div>
@@ -83,9 +86,9 @@ const mapActionsToProps = (dispatch, { firebase }) => ({
   signOut: () => dispatch(signOut(firebase))
 })
 
-const mapStateToProps = state => state
+const mapStateToProps = ({ api, auth }) => ({
+  api,
+  auth
+})
 
-export default compose(
-  withFirebase,
-  connect(mapStateToProps, mapActionsToProps)
-)(Menu)
+export default connect(mapStateToProps, mapActionsToProps)(Menu)

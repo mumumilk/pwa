@@ -16,6 +16,7 @@ const middlewares = applyMiddleware(logger, thunk)
 const firebaseConfig = {
   userProfile: 'users',
   updateProfileOnLogin: false,
+  logErrors: false,
   profileParamsToPopulate: [
     ['role:roles']
   ]

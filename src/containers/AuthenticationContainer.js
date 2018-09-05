@@ -13,7 +13,11 @@ const AuthenticationContainer = Component => {
     }
 
     render() {
-      return <Component {...this.props} />
+      const { auth } = this.props
+
+      return auth.authenticated
+        ? <Component {...this.props} />
+        : null
     }
   }
 

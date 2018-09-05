@@ -1,17 +1,9 @@
-import React from 'react'
-
+import { compose } from 'recompose'
+import {withRouter} from 'react-router'
 import { withFirebase } from 'react-redux-firebase'
 
 const DependenciesContainer = Component => {
-  class Dependencies extends React.Component {
-    render() {
-      return (
-        <Component {...this.props} />
-      )
-    }
-  }
-
-  return withFirebase(Dependencies)
+  return compose(withFirebase, withRouter)(Component)
 }
 
 export default DependenciesContainer

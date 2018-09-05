@@ -1,4 +1,5 @@
 import React from 'react'
+import { compose } from 'recompose'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
 
 import './static/styles/main.css'
@@ -20,18 +21,28 @@ import Event from './Event'
 
 Container.add('event', Event.getInstance())
 
-const MainWithDependencies = DependenciesContainer(Main)
+const Containers = Component => compose(AuthenticationContainer, DependenciesContainer)(Component)
+
+const MainWithDependencies = Containers(Main)
+const LandingWithDependencies = DependenciesContainer(Landing)
+
+const AnalyzeSpotsWithContainers = compose(RoleContainer, Containers)(AnalyzeSpots)
+
+const NewSpotWithContainers = Containers(NewSpot)
+const ListSpotsWithContainers = Containers(ListSpots)
+
+const SettingsAuthenticated = AuthenticationContainer(Settings)
 
 const App = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path='/' component={DependenciesContainer(Landing)} />
+      <Route exact path='/' component={LandingWithDependencies} />
 
       <MainWithDependencies>
-        <Route path='/settings' component={AuthenticationContainer(Settings)} />
-        <Route path='/spots/list' component={AuthenticationContainer(DependenciesContainer(ListSpots))} />
-        <Route path='/spots/new' component={AuthenticationContainer(DependenciesContainer(NewSpot))} />
-        <Route path='/spots/analyze' component={RoleContainer(AuthenticationContainer(DependenciesContainer(AnalyzeSpots)))} />
+        <Route path='/settings' component={SettingsAuthenticated} />
+        <Route path='/spots/list' component={ListSpotsWithContainers} />
+        <Route path='/spots/new' component={NewSpotWithContainers} />
+        <Route path='/spots/analyze' component={AnalyzeSpotsWithContainers} />
       </MainWithDependencies>
     </Switch>
   </BrowserRouter>
