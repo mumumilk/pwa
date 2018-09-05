@@ -1,43 +1,32 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { compose, withProps } from 'recompose'
-import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps'
+
+import { Map, TileLayer } from 'react-leaflet'
 
 import RecordableCenter from '../model/spots/RecordableCenter'
 
-import { fetchLocation } from '../actions/locationActions'
-import { recordCenter } from '../actions/spotActions'
+import { fetchLocation } from '../actions/location'
+import { recordCenter } from '../actions/spot'
 
 import Loader from '../components/Loader'
-import Container from "../Container";
-import EventType from "../EventType";
+import Container from '../Container'
+import EventType from '../EventType'
 
 class LocationContainer extends Component {
+  constructor() {
+    super()
 
-  /**
-   * @type GoogleMap
-   */
-  map
-
-  constructor(props) {
-    super(props)
-
-    this.getRef = this.getRef.bind(this)
     this.recordCenter = this.recordCenter.bind(this)
 
     Container.get('event').add(EventType.CENTER_WAS_RECORDED, this.recordCenter)
   }
 
-  getRef(ref) {
-    this.map = ref
-  }
-
+  /**
+   * @todo Verify that the viewport property is available
+   */
   recordCenter() {
-    const { lat, lng } = this.map.getCenter()
-    const zoom = this.map.getZoom()
-
-    const center = new RecordableCenter(lat(), lng(), zoom)
-    this.props.recordCenter(center)
+    const { center: [lat, lng], zoom } = this.reference.viewport
+    this.props.recordCenter(RecordableCenter.build(lat, lng, zoom))
   }
 
   componentDidMount() {
@@ -45,15 +34,23 @@ class LocationContainer extends Component {
   }
 
   render() {
-    return Object.keys(this.props.location).length !== 0
-      ? <GoogleMap
-          ref={this.getRef}
-          defaultZoom={17}
-          defaultCenter={{ lat: this.props.location.coords.latitude, lng: this.props.location.coords.longitude }}>
+    if (!this.props.location.coords) {
+      return <Loader text="Carregando mapa" />
+    }
 
-          {this.props.children}
-        </ GoogleMap>
-      : <Loader text="Carregando mapa" />
+    const { location: { coords }} = this.props
+
+    return (
+      <Map
+        zoom={17}
+        ref={reference => this.reference = reference}
+        style={{height: 'calc(100vh - 50px)'}}
+        center={{ lat: coords.latitude, lng: coords.longitude }}>
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+
+        {this.props.children}
+      </Map>
+    )
   }
 }
 
@@ -64,16 +61,4 @@ const mapActionsToProps = dispatch => ({
 
 const mapStateToProps = state => state
 
-const MapProps = {
-  googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCFD7Qay7_Wzw9JH3NqBMnlPBgRpmi2YDo&v=3.exp',
-  loadingElement: <Loader text="Carregando mapa" />,
-  containerElement: <div style={{ height: `calc(100vh - 50px)` }} />,
-  mapElement: <div style={{ height: `100%` }} />
-}
-
-export default compose(
-  withProps(MapProps),
-  withScriptjs,
-  withGoogleMap,
-  connect(mapStateToProps, mapActionsToProps)
-)(LocationContainer)
+export default connect(mapStateToProps, mapActionsToProps)(LocationContainer)

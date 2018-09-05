@@ -3,7 +3,7 @@ import {
   LOCATION_NOT_FETCHED
 } from '../constants'
 
-export function fetchLocation() {
+export const fetchLocation = () => {
   const geolocation = navigator.geolocation
 
   const location = new Promise((resolve, reject) => {
@@ -11,9 +11,11 @@ export function fetchLocation() {
       reject(new Error('Not Supported'))
     }
 
-    geolocation.getCurrentPosition(position => resolve(position), () => {
-      reject(new Error(`Permission denied`))
-    })
+    geolocation
+      .getCurrentPosition(
+        position => resolve(position),
+        error => reject(new Error(`Error, ${error}`))
+      )
   })
 
   return dispatch => {

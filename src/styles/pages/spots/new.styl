@@ -6,16 +6,12 @@
   &__content
     width 100%
     height calc(100vh - 50px)
-    z-index 10
+    z-index 1100
     padding-top 40px
-    display none
     position absolute
     top 0
     left 0
     background $white
-
-    &--visible
-      display block
 
   &__container
     @extends .container
@@ -43,7 +39,7 @@
   &__button
     position absolute
     bottom 20px
-    z-index 5
+    z-index 500
     margin 0 10px
     width calc(100% - 20px)
 
@@ -52,5 +48,5 @@
     left 50%
     top 50%
     transform translate(-50%, -50%)
-    z-index 5
+    z-index 500
     font-size rem(25px)

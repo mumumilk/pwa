@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux'
 
 import { firebaseReducer } from 'react-redux-firebase'
-import { authReducer } from './authReducer'
-import { locationReducer } from './locationReducer'
-import { spotReducer } from './spotReducer'
+import { auth } from './auth'
+import { location } from './location'
+import { spot } from './spot'
 
 const reducers = combineReducers({
-  auth: authReducer,
-  location: locationReducer,
-  api: firebaseReducer,
-  spot: spotReducer
+  auth,
+  location,
+  spot,
+  api: firebaseReducer
 })
 
 export default reducers

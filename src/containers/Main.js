@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
 
 import Menu from '../pages/Menu'
 
@@ -33,9 +34,11 @@ class Main extends React.Component {
   }
 
   render() {
+    const { firebase, history } = this.props
+
     return (
       <div className="main">
-        <Menu />
+        <Menu firebase={firebase} history={history} />
 
         <div className="content content--fullable">
             <div className="bar">
@@ -49,4 +52,6 @@ class Main extends React.Component {
   }
 }
 
-export default Main
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps)(Main)

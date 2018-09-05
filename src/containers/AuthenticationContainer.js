@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const AuthenticationContainer = Component => {
   class Authentication extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
       const { auth, history } = this.props
 
       if (!auth.authenticated) {
@@ -13,7 +13,11 @@ const AuthenticationContainer = Component => {
     }
 
     render() {
-      return <Component {...this.props} />
+      const { auth } = this.props
+
+      return auth.authenticated
+        ? <Component {...this.props} />
+        : null
     }
   }
 

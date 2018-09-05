@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const RoleContainer = Component => {
   class Role extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
       const { auth, history } = this.props
 
       if (!auth.isAdmin) {

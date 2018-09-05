@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
-
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { signOut } from '../actions/authActions'
-import { withFirebase } from 'react-redux-firebase'
-import { compose } from 'recompose'
+import { signOut } from '../actions/auth'
 
 class Menu extends Component {
   constructor(props) {
     super(props)
 
     this.closeMenu = this.closeMenu.bind(this)
+    this.redirectAndSignOut = this.redirectAndSignOut.bind(this)
   }
 
   closeMenu() {
@@ -25,45 +23,57 @@ class Menu extends Component {
     content.classList.add(CONTENT_MODIFIER)
   }
 
+  redirectAndSignOut() {
+    const { signOut, history } = this.props
+
+    signOut()
+  }
+
   render() {
-    const { api, auth, signOut } = this.props
+    const {
+      auth,
+      api: { profile }
+    } = this.props
 
     return (
       <div className="menu menu--hidden">
         <div className="menu__header">
-          <img className="menu__photo" src={api.profile.avatarUrl} />
-          <h2 className="menu__name">{api.profile.displayName}</h2>
+          <img className="menu__photo" src={profile.avatarUrl} />
+          <h2 className="menu__name">{profile.displayName}</h2>
           <span className="menu__role">Usuário</span>
         </div>
 
         <div className="menu__body">
           <Link className="menu__link" to="/spots/list" onClick={this.closeMenu}>
-            <span className="menu__link__icon icon--skateboarder"></span>
+            <span className="menu__link__icon icon--skateboarder" />
             Todos os picos
           </Link>
 
-          {auth.isAdmin && <Link className="menu__link" to="/spots/analyze" onClick={this.closeMenu}>
-            <span className="menu__link__icon icon--configuration"></span>
-            Analisar pico
-          </Link>}
+          {
+            auth.isAdmin &&
+            <Link className="menu__link" to="/spots/analyze" onClick={this.closeMenu}>
+              <span className="menu__link__icon icon--configuration" />
+              Analisar pico
+            </Link>
+          }
 
           <Link className="menu__link" to="/spots/new" onClick={this.closeMenu}>
-            <span className="menu__link__icon icon--plus"></span>
+            <span className="menu__link__icon icon--plus" />
             Adicionar novo pico
           </Link>
 
           <Link className="menu__link" to="" onClick={this.closeMenu}>
-            <span className="menu__link__icon icon--trophy"></span>
+            <span className="menu__link__icon icon--trophy" />
             Campeonatos
           </Link>
 
           <Link className="menu__link" to="" onClick={this.closeMenu}>
-            <span className="menu__link__icon icon--shopping"></span>
+            <span className="menu__link__icon icon--shopping" />
             Skateshops
           </Link>
 
-          <span className="menu__link" onClick={signOut}>
-            <span className="menu__link__icon icon--logout"></span>
+          <span className="menu__link" onClick={this.redirectAndSignOut}>
+            <span className="menu__link__icon icon--logout" />
             Sair
           </span>
         </div>
@@ -72,13 +82,13 @@ class Menu extends Component {
   }
 }
 
-const mapActionsToProps = (dispatch, state) => ({
-  signOut: () => dispatch(signOut(state.firebase))
+const mapActionsToProps = (dispatch, { firebase }) => ({
+  signOut: () => dispatch(signOut(firebase))
 })
 
-const mapStateToProps = state => state
+const mapStateToProps = ({ api, auth }) => ({
+  api,
+  auth
+})
 
-export default compose(
-  withFirebase,
-  connect(mapStateToProps, mapActionsToProps)
-)(Menu)
+export default connect(mapStateToProps, mapActionsToProps)(Menu)

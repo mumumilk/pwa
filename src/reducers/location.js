@@ -7,7 +7,7 @@ const initialState = {
 
 }
 
-export function locationReducer(state = initialState, { payload, type }) {
+export function location(state = initialState, { payload, type }) {
   switch (type) {
     case LOCATION_FETCHED:
       const { coords } = payload

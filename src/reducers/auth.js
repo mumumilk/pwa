@@ -10,11 +10,10 @@ const initialState = {
   id: null
 }
 
-export function authReducer(state = initialState, { type, payload }) {
+export function auth(state = initialState, { type, payload }) {
   switch (type) {
     case INIT_AUTH:
     case SIGN_IN_SUCCESS:
-      console.log(payload)
       return {
         ...state,
         isAdmin: (payload.profile.role === 'admin'),
